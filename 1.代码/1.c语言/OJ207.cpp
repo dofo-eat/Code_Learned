@@ -19,18 +19,18 @@ bool cmp(struct student a, struct student b) {
 }
 
 int main() {
-    int n, max = -1, min = 1000;
+    int n, m, max = -1, min = 1000;
     string name;
     struct student a[35];
     cin >> n;
     for(int i = 0; i < n; i++) {
         cin >> name;
-        int sum = 0, m;
-        for (int i = 0; i < 4; i++) {
+        int sum = 0;
+        for (int j = 0; j < 4; j++) {
             cin >> m;
+            sum += m;
             m > max && (max = m);
-            m < min && (min = m);
-            sum += m;     
+            m < min && (min = m);     
         }
         cout << sum << endl;
         struct student temp = {name, sum};

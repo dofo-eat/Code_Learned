@@ -1,8 +1,8 @@
 /*************************************************************************
-	> File Name: OJ208.cpp
+	> File Name: OJ209.cpp
 	> Author: dofo-eat
 	> Mail:2354787023@qq.com 
-	> Created Time: 2019年12月11日 星期三 20时59分10秒
+	> Created Time: 2019年12月13日 星期五 15时14分48秒
  ************************************************************************/
 
 #include<iostream>
@@ -10,21 +10,15 @@
 using namespace std;
 
 int main () {
-    int n, m;
+    int n;
     cin >> n;
     int a[105];
-    int temp = 0;
-    int b[10005] = {0};
     for(int i = 0; i < n; i++) {
-        cin >> temp;
-        b[temp]++;
+        cin >> a[i];
     }
-    cin >> m;
-    for(int i = 100; i >= 0; i--) {
-        if(b[i] >=  m) {
-            cout << b[i];
-            break;
-        }     
-    }
+    sort(a, a + n);
+    for(int i = 0; i < n; i++) {
+        cout << a[i] << endl;
+    } 
     return 0;
 }
