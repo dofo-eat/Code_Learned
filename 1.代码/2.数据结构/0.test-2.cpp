@@ -2,434 +2,332 @@
 	> File Name: 0.test-2.cpp
 	> Author: dofo-eat
 	> Mail:2354787023@qq.com 
-	> Created Time: 2020年02月17日 星期一 16时25分30秒
+	> Created Time: 2020年02月19日 星期三 15时57分43秒
  ************************************************************************/
 /*************************************************************************
- *
- *     > Author:    hug
- *
- *         > Problem:   树和二叉树的复习-层次遍历二叉树
- *
- *             > Mail:      hug@haizeix.com
- *
- *             ************************************************************************/
+*
+*     > Author:    hug
+*
+*         > Problem:   树和二叉树的复习-递归删除指定节点
+*
+*             > Mail:      hug@haizeix.com
+*
+*             ************************************************************************/
+
+ 
+
+ #include <stdio.h>
+
+ #include <stdlib.h>
+
+ #include <string.h>
 
   
 
-  #include <stdio.h>
+  #define ERROR 0
 
-  #include <stdlib.h>
-
-  #include <string.h>
+  #define OK 1
 
    
 
-   #define ERROR 0
+   typedef struct Node {
+       
+           char data;
 
-   #define OK 1
+           struct Node *lchild, *rchild;
+
+
+   } Node, *pNode;
 
     
 
-    typedef struct Node {
+    typedef struct Stack {
         
-            char data;
+            pNode *data;
 
-            struct Node *lchild, *rchild;
+            int size, top;
 
 
-    } Node, *pNode;
+    } Stack, *pStack;
 
      
 
-     typedef struct Stack {
+     void init_stack(Stack *s, int len) {
          
-             pNode *data;
+             s->data = (pNode *)malloc(sizeof(pNode) * len);
 
-             int size, top;
+             s->size = len;
+
+             s->top = -1;
 
 
-     } Stack, *pStack;
+     }
 
       
 
-      typedef struct Queue {
+      int push_stack(Stack *s, pNode e) {
           
-              pNode *data;
+          if (s->top >= s->size - 1) {
 
-              int head, tail, len, cnt;
+                      return ERROR;
+
+                  
+          }
+
+              s->data[++(s->top)] = e;
+
+              return OK;
 
 
-      } Queue, *pQueue;
+      }
 
        
 
-       void init_queue(pQueue q, int len) {
+       int pop_stack(Stack *s) {
            
-               q->data = (pNode *)malloc(sizeof(pNode) * len);
+           if (empty_stack(s)) {
 
-               q->len = len;
+                       return ERROR;
 
-               q->head = 0;
+                   
+           }
 
-               q->tail = -1;
+               --(s->top);
 
-               q->cnt = 0;
+               return OK;
 
 
        }
 
         
 
-        int push_queue(pQueue q, pNode e) {
+        pNode top_stack(Stack *s) {
             
-            if (q->cnt == q->len) {
+                if (empty_stack(s)) return NULL;
 
-                        return ERROR;
-
-                    
-            }
-
-                q->tail = (q->tail + 1) % q->len;
-
-                q->data[q->tail] = e;
-
-                ++(q->cnt);
-
-                return OK;
+                return s->data[s->top];
 
 
         }
 
          
 
-         int empty_queue(pQueue q) {
+         int empty_stack(Stack *s) {
              
-                 return q->cnt == 0;
+                 return s->top == -1;
 
 
          }
 
           
 
-          int pop_queue(pQueue q) {
+          void clear_stack(Stack *s) {
               
-              if (empty_queue(q)) {
+                  free(s->data);
 
-                          return ERROR;
-
-                      
-              }
-
-                  ++(q->head);
-
-                  --(q->cnt);
-
-                  return OK;
+                  free(s);
 
 
           }
 
            
 
-           pNode front_queue(pQueue q) {
+           pNode init(char data) {
                
-                   return q->data[q->head];
+                   pNode p = (pNode)malloc(sizeof(Node));
+
+                   p->data = data;
+
+                   p->lchild = NULL;
+
+                   p->rchild = NULL;
+
+                   return p;
 
 
            }
 
             
 
-            void clear_queue(pQueue q) {
+            void clear(pNode p) {
                 
-                    if (!q) return ;
+                    if (!p) return ;
 
-                    free(q->data);
+                if (p->lchild) {
+                    
+                            clear(p->lchild);
 
-                    free(q);
+                        
+                }
+
+                if (p->rchild) {
+                    
+                            clear(p->rchild);
+
+                        
+                }
+
+                    free(p);
 
 
             }
 
              
 
-             void init_stack(Stack *s, int len) {
+             pNode build(char *str) {
                  
-                     s->data = (pNode *)malloc(sizeof(pNode) * len);
+                     pNode p = NULL, last_p = NULL;
 
-                     s->size = len;
+                     Stack *stack = (Stack *)malloc(sizeof(Stack));
 
-                     s->top = -1;
+                     init_stack(stack, strlen(str));
+
+                     int k = 0;
+
+                 while (str[0]) {
+                     
+                     switch (str[0]) {
+
+                                     case '(' :
+                                            
+                                                            k = 0;
+                                            
+      s                                                      push_stack(stack, p);
+                                            
+                                                            p = NULL;
+                                            
+                                                            break;
+                                            
+                                                        case ')' :
+
+                                         last_p = top_stack(stack);
+
+                                         pop_stack(stack);
+
+                                         break;
+
+                                     case ',' :
+
+                                         k = 1;
+
+                                         p = NULL;
+
+                                         break;
+
+                                     case ' ':
+
+                                         break;
+
+                                     default :
+
+                                         p = init(str[0]);
+
+                         if (!empty_stack(stack) && k == 0) {
+                             
+                                                 top_stack(stack)->lchild = p;
+
+                                             
+                         } else if (!empty_stack(stack) && k == 1) {
+                             
+                                                 top_stack(stack)->rchild = p;
+
+                                             
+                         }
+
+                                         break;
+
+                                 
+                     }
+
+                             ++str;
+
+                                 
+                 }
+
+                     if (p && !last_p) last_p = p;
+
+                         clear_stack(stack);
+
+                             return last_p;
 
 
              }
 
               
 
-              int push_stack(Stack *s, pNode e) {
+              void output(pNode p, char x) {
                   
-                  if (s->top >= s->size - 1) {
+                  if (p == NULL || p->data == x) {
 
-                              return ERROR;
+                              return ;
 
                           
                   }
 
-                      s->data[++(s->top)] = e;
+                      printf("%c", p->data);
 
-                      return OK;
-
-
-              }
-
-               
-
-               int empty_stack(Stack *s) {
-                   
-                       return s->top == -1;
-
-
-               }
-
-                
-
-                int pop_stack(Stack *s) {
-                    
-                    if (empty_stack(s)) {
-
-                                return ERROR;
-
-                            
-                    }
-
-                        --(s->top);
-
-                        return OK;
-
-
-                }
-
-                 
-
-                 pNode top_stack(Stack *s) {
-                     
-                         return s->data[s->top];
-
-
-                 }
-
-                  
-
-                  void clear_stack(Stack *s) {
-                      
-                          free(s->data);
-
-                          free(s);
-
-
-                  }
-
-                   
-
-                   pNode init(char data) {
-                       
-                           pNode p = (pNode)malloc(sizeof(Node));
-
-                           p->data = data;
-
-                           p->lchild = NULL;
-
-                           p->rchild = NULL;
-
-                           return p;
-
-
-                   }
-
-                    
-
-                    void clear(pNode p) {
-                        
-                            if (!p) return ;
-
-                        if (p->lchild) {
-
-                                    clear(p->lchild);
-
-                                
-                        }
-
-                        if (p->rchild) {
-                            
-                                    clear(p->rchild);
-
-                                
-                        }
-
-                            free(p);
-
-
-                    }
-
-                     
-
-                     pNode build(char *str, int *node_num) {
+                      if ((p->lchild == NULL || p->lchild->data == x) &&
                          
-                             pNode p = NULL, last_p = NULL;
-
-                             Stack *stack = (Stack *)malloc(sizeof(Stack));
-
-                             init_stack(stack, strlen(str));
-
-                             int k = 0;
-
-                         while (str[0]) {
-                             
-                             switch (str[0]) {
-
-                                             case '(' :
-                                                    
-                                                                    k = 0;
-                                                    
-                                                                    push_stack(stack, p);
-                                                    
-                                                                    p = NULL;
-                                                    
-                                                                    break;
-                                                    
-                                                                case ')' :
-
-                                                 last_p = top_stack(stack);
-
-                                                 pop_stack(stack);
-
-                                                 break;
-
-                                             case ',' :
-
-                                                 k = 1;
-
-                                                 p = NULL;
-
-                                                 break;
-
-                                             case ' ':
-
-                                                 break;
-
-                                             default :
-
-                                                 p = init(str[0]);
-
-                                 if (!empty_stack(stack) && k == 0) {
-                                     
-                                                         top_stack(stack)->lchild = p;
-
-                                                     
-                                 } else if (!empty_stack(stack) && k == 1) {
-                                     
-                                                         top_stack(stack)->rchild = p;
-
-                                                     
-                                 }
-
-                                                 ++(*node_num);
-
-                                                 break;
-
-                             
-                             }
-
-                                     ++str;
-
-                                         
-                         }
-
-                             if (p && !last_p) last_p = p;
-
-                                 clear_stack(stack);
-
-                                     return last_p;
-
-
-                     }
-
-                      
-
-                      void output(pNode p, int node_num) {
-                          
-                          if (node_num == 0) {
-
+                          (p->rchild == NULL || p->rchild->data == x)) {
+                              
                                       return ;
 
                                   
                           }
 
-                              printf("%c", p->data);
+                      printf("(");
+                  
+                  if (p->lchild && p->lchild->data != x) {
+                      
+                              output(p->lchild, x);
 
-                              pQueue q = (pQueue)malloc(sizeof(Queue));
+                          
+                  }
+                  
+                  if (p->rchild && p->rchild->data != x) {
+                      
+                              printf(",");
 
-                              pNode temp_p;
+                              output(p->rchild, x);
 
-                              init_queue(q, node_num);
+                          
+                  }
+                  
+                      printf(")");
+                  
+                      return ;
+                  
+              }
+              
+               
+               
+               int main() {
+                   
+                       char str[35], ch;
 
-                              push_queue(q, p);
+                       int ind = 0;
 
-                          while (!empty_queue(q)) {
-                              
-                                      temp_p = front_queue(q);
-
-                              if (temp_p->lchild) {
-
-                                              printf(" %c", temp_p->lchild->data);
-
-                                              push_queue(q, temp_p->lchild);
-
-                                          
-                              }
-
-                              if (temp_p->rchild) {
-                                  
-                                              printf(" %c", temp_p->rchild->data);
-
-                                              push_queue(q, temp_p->rchild);
-
-                                          
-                              }
-
-                                      pop_queue(q);
-
-                                  
-                          }
-
-                              clear_queue(q);
-
-                              return ;
-
-
-                      }
-
+                   while (scanf("%c", &ch)) {
                        
+                               if (ch == '\n') break;
 
-                       int main() {
+                               str[ind++] = ch;
+
                            
-                               char str[100] = {0}, ch;
+                   }
 
-                               int ind = 0;
+                       str[ind] = 0;
 
-                               scanf("%s", str);
+                       scanf("%c", &ch);
 
-                               int node_num = 0;
+                       pNode p = build(str);
 
-                               pNode p = build(str, &node_num);
+                       output(p, ch);
 
-                               output(p, node_num);
+                       clear(p);
 
-                               clear(p);
-
-                               return 0;
+                       return 0;
 
 
-                       }
-
-                        
+               }")")
+              }
