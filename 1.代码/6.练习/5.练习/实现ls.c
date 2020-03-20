@@ -22,6 +22,7 @@
 #define PARAM_A 1
 #define PARAM_L 2
 #define MAXROWLEN 80
+
 int g_leave_len = MAXROWLEN;
 int g_maxlen;
 
@@ -197,12 +198,12 @@ int main (int argc, char **argv) {
     int num;
     char path[PATH_MAX + 1];
     char param[32];
-    int flag_param = PARAM_NONE;
+    int flag_param = PARAM_NONE;//判断选项
     struct stat buf;
     
     j = 0;
     num = 0;
-    for(i=1;i<argc;i++){
+        for(i=1;i<argc;i++){
         if(argv[i][0] == '-'){
             for(k=1;k<strlen(argv[i]);k++){
                 param[j] = argv[i][k];
@@ -213,10 +214,10 @@ int main (int argc, char **argv) {
     }
     for(i=0;i<j;i++){
         if(param[i] == 'a'){
-            flag_param |= PARAM_A;        
+            flag_param = PARAM_A;        
         }
         else if(param[i] == 'l'){
-            flag_param |= PARAM_L;         
+            flag_param = PARAM_L;         
         }
         else{
             printf("错误的参数：%c\n",param[i]);
