@@ -586,7 +586,7 @@ find ~ -name "*.log" -o -name "*.sh" -o -name "*.c" -type f 2>/dev/null | xargs 
 * nouser ：文件所有者不存在
 * nogroup: 文件所在组不存在
 
-3.与文件权限及名称有关的参数
+3.与文件权限及名称有关的参
 
 * -name filename   文件名为filename
 * -size [+-] SIZE     查找比size大或者小的
@@ -594,6 +594,10 @@ find ~ -name "*.log" -o -name "*.sh" -o -name "*.c" -type f 2>/dev/null | xargs 
 * -perm mode :mode 刚好等于的文件
 * -perm -mode :全部包含mode的文件
 * find -exec ls -l {} \;s
+
+
+##  SIze of是一个操作符号
+
 
 
 
