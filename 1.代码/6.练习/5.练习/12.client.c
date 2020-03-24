@@ -18,7 +18,7 @@ int main(int argc, char **argv) {
     int sockfd, port;
     struct sockaddr_in server;
     if(argc != 3) {
-        sprintf(stdder, "Usage:%s ip port\n", argv[0]);
+        fprintf(stderr, "Usage:%s ip port\n", argv[0]);
         exit(1);
     }
     port = atoi(argv[2]);
@@ -36,7 +36,7 @@ int main(int argc, char **argv) {
         perror("connect");
         exit(1);
     }
-    if(send(sockfd, "suyelu", sizeof("suyelu"), 0) < 0) {
+    if(send(sockfd, "suxx", sizeof("suxx"), 0) < 0) {
         perror("send");
         exit(1);
     }

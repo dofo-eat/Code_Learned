@@ -16,11 +16,11 @@
 
 int main(int argc, char **argv) {
     if(argc != 2) {
-        sprintf(stderr, "Usage:%s port\n", argv[0]);
+        fprintf(stderr, "Usage:%s port\n", argv[0]);
         exit(1);
     }
     int port, server_listen;//端口
-    port = atoi(argv[1]);
+    port = atoi(argv[1]);//把字符串转换成整形
 
     if((server_listen = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
         //申请个门
@@ -33,33 +33,36 @@ int main(int argc, char **argv) {
     server.sin_port = htons(port);
     server.sin_addr.s_addr = INADDR_ANY;
 
-    if(listen(server_listen, 20) < 0) {
+    if(bind(server_listen, (struct sockaddr *)&server, sizeof(server_listen)) < 0) {
         perror("bind");
         exit(1);
-    }
+    }//传入地址
 
     if(listen(server_listen, 20) < 0) {
         perror("server");
-        exit(1);
+        exit(1);//判断是否出错
     }
     while(1) {
         int sockfd;
         if((sockfd = accept(server_listen, NULL, NULL)) < 0) {
             perror("accept");
             close(sockfd);
-            continue;
+            continue;//在那里出错
         }
-        pit_pid;
+        pid_t pid;
         if((pid = fork()) < 0) {
             perror("fork");
             continue;
         }
         if(pid == 0) {
+            close(server_listen);
             char name[20] = {0};
             if(recv(sockfd, name, sizeof(name), 0) <= 0) {
                 perror("recv");
                 close(sockfd);
-            } 
+            }
+            printf("name :%s\n", name);
+            exit(0);
         }
        /* char name[20] = {0};
         if(recv(sockfd, name, sizeof(name), 0) <= 0) {
@@ -67,8 +70,6 @@ int main(int argc, char **argv) {
             close(sockfd);
             continue;
         }*/
-        printf("name :%s\n", name);
-        exit(0);
     }
     return 0;
 }
