@@ -13,6 +13,7 @@
 #include<sys/types.h>
 #include<sys/socket.h>
 #include<arpa/inet.h>
+#include<sys/wait.h>
 
 int main(int argc, char **argv) {
     if(argc != 2) {
@@ -64,6 +65,7 @@ int main(int argc, char **argv) {
             printf("name :%s\n", name);
             exit(0);
         }
+        waitpid(-1, NULL, 0);
        /* char name[20] = {0};
         if(recv(sockfd, name, sizeof(name), 0) <= 0) {
             //来之前说明你是谁
