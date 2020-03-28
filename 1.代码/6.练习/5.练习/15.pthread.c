@@ -39,4 +39,4 @@ int main() {
     printf("%d\n", *(int *)status);
     return 0;
 }
-//gcc pthread.c -pthread
+//gcc pthread.c -pthrea
