@@ -2,7 +2,7 @@
 	> File Name: OJ398.cpp
 	> Author: dofo-eat
 	> Mail:2354787023@qq.com 
-	> Created Time: 2020年04月01日 星期三 18时48分14秒
+	> Created Time: 2020年04月03日 星期五 21时09分01秒
  ************************************************************************/
 
 #include<iostream>
@@ -43,3 +43,4 @@ int main () {
     }
     return 0;
 }
+
