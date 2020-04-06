@@ -16,7 +16,7 @@
 #include <sys/file.h>
 
 char num_file[] = "./.num";
-char lock_file[] = ".//lock";
+char lock_file[] = "./.lock";
 
 struct Num{
     int now;
