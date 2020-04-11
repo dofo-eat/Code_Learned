@@ -10,6 +10,15 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+void seconds_sleep(unsigned seconds){
+        struct timeval tv;
+        tv.tv_sec=seconds;
+        tv.tv_usec=0;
+        int err;
+        err=select(0,NULL,NULL,NULL,&tv);
+
+}
+
 int main(void){
     fd_set rfds;
     struct timeval tv;
@@ -32,7 +41,7 @@ int main(void){
         char buf[512] = {0};
         printf("Data is available now.\n");
         scanf("%s", &buf);
-    }//内核只是可以感知到可以读， 但是还没
+    }//内核只是可以感知到可以读， 但是还没写入
                /* FD_ISSET(0, &rfds) will be true. */
    else
         printf("No data within five seconds.\n");

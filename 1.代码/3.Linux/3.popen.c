@@ -13,10 +13,10 @@
 char buff[1024] = {0};
 
 int main(int argc, char **argv) {
-    if(argc != 3) {
+    /*if(argc != 3) {
         perror(stderr, "Usage %s \n", argv[0]);
         return 1;
-    }
+    }*/
     FILE *popen (const char *command, const char *type) {
         int pfd[2];
         pid_t pid;
@@ -37,7 +37,8 @@ int main(int argc, char **argv) {
             if(*type == 'r') {
                 dup2(pfd[0], buff);
                 close(pfd[0]);
-            } else {
+            }
+        } else {
                dup2(pfd[1], buff);
                 close(pfd[1]);
             }
@@ -49,13 +50,12 @@ int main(int argc, char **argv) {
                 return NULL;
             }
         } else {
-            close(pfd[0]) {
-                if((fp = fopen(pfd[1], type)) = NULL) {
-                    perror(popen);
-                    return NULL;
-                }
+            close(pfd[0]);
+            if((fp = fopen(pfd[1], type)) = NULL) {
+                perror(popen);
+                return NULL;
             }
-        }
+        } 
         return fp;
     }
 

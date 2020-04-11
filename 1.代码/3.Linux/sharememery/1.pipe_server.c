@@ -10,6 +10,13 @@
 #include<string.h>
 #include<math.h>
 
+void seconds_sleep(int seconds){
+    struct timeval tv;
+    tv.tv_sec=seconds;
+    tv.tv_usec=0;
+
+}
+
 int main() {
     pid_t pid;
     int pipefd[2];
@@ -23,8 +30,7 @@ int main() {
     if(pid == 0) {
         while (1) {
             scanf("%[^\n]s",buff);
-
-                   getchar();
+            getchar();
             write(pipefd[1], buff, strlen(buff));
         }
     }
