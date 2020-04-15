@@ -12,6 +12,7 @@
 #include<error.h>
 #include<unistd.h>
 #include<sys/wait.h>
+#include<fcntl.h>
 
 pid_t *childpid = NULL;
 int maxfd = 1024;
@@ -41,14 +42,13 @@ FILE *popen (const char *command, const char *type) {
         if(*type == 'r') {
             dup2(pfd[0], STDOUT_FILENO);
             close(pfd[0]);
-        }
-    } else {
+        } else {
            dup2(pfd[1], STDIN_FILENO);
             close(pfd[1]);
         }
-    }
-    for(int i = 0; i < maxfd; i++) {
-        if(childpid[i] > 0) close(i); 
+        for(int i = 0; i < maxfd; i++) {
+            if(childpid[i] > 0) close(i); 
+        }
     } 
     if(*type == 'r') {
         close(pfd[1]);
@@ -58,7 +58,7 @@ FILE *popen (const char *command, const char *type) {
         }
     } else {
         close(pfd[0]);
-        if((fp = fopen(pfd[1], type)) = NULL) {
+        if((fp = fopen(pfd[1], type)) == NULL) {
             perror(popen);
             return NULL;
         }
@@ -81,5 +81,9 @@ int pclose (FILE *fp) {
     if(fclose(fd) == EOF) {
         return -1;
     }
+    while(waitpid(pid, &stat, 0) < 0) {
+        return -1;
+    }
+    return stat;
 }
 
