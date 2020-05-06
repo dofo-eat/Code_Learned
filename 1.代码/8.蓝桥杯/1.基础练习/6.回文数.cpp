@@ -17,7 +17,7 @@ int pc(int n) {
 
 int main() {
     int c = 0;
-    for(int i = 0; i < 10000; i++) { 
+    for(int i = 1000; i < 10000; i++) { 
         if(pc(i)) {
             printf("%d\n", i);
         }
