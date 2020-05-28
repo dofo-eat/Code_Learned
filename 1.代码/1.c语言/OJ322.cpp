@@ -4,23 +4,10 @@
 	> Mail:2354787023@qq.com 
 	> Created Time: 2020年05月11日 星期一 21时32分31秒
  ***********************************************************************/
- 
-/*************************************************************************
-   > File Name: 322.cpp
-   > Author: hug
-   > Mail:   hug@haizeix.com
-   > Created Time: 四  8/22 14:54:15 2019
- ************************************************************************/
-
 #include <iostream>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <algorithm>
-#include <vector>
 #include <map>
-#include <cmath>
 using namespace std;
+
 #define MAX_N 1000000
 map<int, int> ind;
 int cnt = 0;
