@@ -63,7 +63,7 @@ int main() {
     }
     init(ind_cnt);
     for (int i = 0; i < m; i++) {
-        if (merge(ind[arr[i].x], ind[arr[i].y], arr[i].t[0] == 'o')) continue;
+        if (merge(ind[arr[i].x], ind[arr[i].y], arr[i].t == "odd")) continue;
         cout << i << endl;
         return 0;
     }
