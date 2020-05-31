@@ -1,54 +1,91 @@
 /*************************************************************************
-	> File Name: play_again1.c
+	> File Name: play_again2终端权威.c
 	> Author: dofo-eat
 	> Mail:2354787023@qq.com 
-	> Created Time: 2020年05月28日 星期四 19时59分50秒
+	> Created Time: 2020年05月30日 星期六 19时28分02秒
  ************************************************************************/
+#include <stdio.h>
+#include <termios.h>
+#include <fcntl.h>
+#include <ctype.h>
+#include <sys/select.h>
+#include <string.h>
+#define Q "Do you want another try?"
+#define TIMEOUT 5
+int get_response();
+void tty_mode(int);
+void set_cr_noecho_mode();
+void set_nonblock_mode();
+int get_ok_char();
+int get_response();
+int main() {
+    int response;
+    tty_mode(0);
+    set_cr_noecho_mode();
+    response = get_response();
+    tty_mode(1);
+    printf("\nreturn val = %d\n", response);
+    return response;
+}
 
- #include<stdio.h>
- #include<termios.h>
- #define Q "Do you want another try?"
+int get_response(){
+    printf("%s (y/n)?", Q);
+    fflush(stdout);
 
-int getresponse();
+    struct timeval tv;
+    tv.tv_sec = TIMEOUT;
+    tv.tv_usec = 0;
 
-void tty_mode(); 
- 
- int main() {
-     int response;
-     tty_mode(0);
-     setcrmode();
-     response = getresponse();
-     tty_mode(1);
-    printf("return val = %d\n", response);
-     return response;
- }
+    fd_set set;
+    a1:FD_ZERO(&set);
+    FD_SET(0, &set);
 
- int getresponse() {
-     printf("%s", Q);
-     printf("YES or NO : ");
-     switch (getchar()) {
-         case 'y':
-         case 'Y': return 1;
-         case 'N' :
-         case 'n' : return 0;
-         default : return 0;
-     }
- }
+    int ret = select(1, &set, NULL, NULL, &tv);
+    if (ret == 1) {
+        if (FD_ISSET(0, &set)) {
+            while (1) {
+                int input = tolower(getchar());
+                switch (input) {
+                    case 'y':
+                        return 1;
+                    case 'n':
+                        return 0;
+                    default:
+                        goto a1;
+                }
+            }
+        }
+    }
+    return 2;
+}
 
-void setcrmode() {
+int get_ok_char(){
+    int c;
+    while ((c = getchar()) != EOF && strchr("yYnN", c) == NULL);
+    return c;
+}
+
+void set_nonblock_mode() {
+    int termflags;
+    termflags = fcntl(0, F_GETFL);
+    termflags |= O_NONBLOCK;
+    fcntl(0, F_SETFL, termflags);
+}
+
+void set_cr_noecho_mode() {
     struct termios ttystate;
-    tcgetattr(0,&ttystate);//取输入中端的
-    ttystate.c_lflag &= ~ICANON;//将取道的改掉
+    tcgetattr(0, &ttystate);
+    ttystate.c_lflag &= ~ICANON;
+    ttystate.c_lflag &= ~ECHO;
     ttystate.c_cc[VMIN] = 1;
     tcsetattr(0, TCSANOW, &ttystate);
 }
 
 void tty_mode (int how) {
-    //how = 1还原 how = 0 保存
     static struct termios orignal_mode;
-    if(how == 0) {
+    if (how == 0) {
         tcgetattr(0, &orignal_mode);
     } else {
-        tcgsetattr(0, TCSANOW, &orignal_mode);
+        tcsetattr(0, TCSANOW, &orignal_mode);
     }
 }
