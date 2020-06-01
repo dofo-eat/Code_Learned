@@ -2,31 +2,33 @@
 	> File Name: 1.背景图片.c
 	> Author: dofo-eat
 	> Mail:2354787023@qq.com 
-	> Created Time: 2020年05月30日 星期六 20时21分05秒
+	> Created Time: 2020年05月31日 星期日 12时57分17秒
  ************************************************************************/
-
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<math.h>
 #include<ncurses.h>
-
-int a[40][120];
+#include<unistd.h>
+/*int main(){
+    initscr();
+    WINDOW *m1 = newwin(35, 105, 0, 0);
+    box(m1, 0, 0);
+    wrefresh(m1);
+    sleep(200);
+    endwin();
+}*/
 
 int main() {
     initscr();
-    for(int i = 0; i <= 120; i++){
-        printw("-");
-        if(i == 120) printw(">");
-    }
-    for(int i = 0; i <= 40; i++) {
-        for(int j = 0; j <= 120; j++) {
-            a[i][0] && printw("|");
-        }
-    }
-    refresh();
-    //endwin();
-    
-    
+    WINDOW *m1 = newwin(35, 105, 0, 0);
+    box(m1, 0, 0);
+    move(4, 4);
+    hline('-', 10);
+    vline('|', 10);
+    getch();
+    move(10, 10);
+    clrtobot();
+    getch();
+    move(4,4);
+    clrtoeol();
+    getch();
+    endwin();
     return 0;
 }
