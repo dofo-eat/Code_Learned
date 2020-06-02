@@ -1,0 +1,4 @@
+LINES=35
+COLS=115
+port=8888
+port=9999
