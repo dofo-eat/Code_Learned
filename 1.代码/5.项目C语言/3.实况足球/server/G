@@ -1,1 +1,1 @@
-gcc server.c ../common/common.c ../common/udp_server.c -lcurses 
+gcc -std=c99 server.c ../common/common.c ../common/udp_server.c -lcurses -lpthread 
