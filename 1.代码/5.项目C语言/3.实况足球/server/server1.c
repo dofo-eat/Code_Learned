@@ -78,6 +78,10 @@ int main(int argc, char **argv) {
         int nfds = epoll_wait(epoll_fd, events, MAX * 2, -1);
 
         for (int i = 0; i < nfds; i++) {
+            if(events[i].data.fd ==listener) {
+                //accept();
+                udp_accept()
+            }
             char info[1024] = {0};
             recvfrom(events[i].data.fd, (void *)&lg, sizeof(lg), 0, (struct sockaddr *)&client, &len);
         sprintf(info, "Login : %s : %d", inet_ntoa(client.sin_addr), ntohs(client.sin_port));
