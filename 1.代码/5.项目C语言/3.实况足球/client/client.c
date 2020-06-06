@@ -9,7 +9,7 @@
 
 char server_ip[20] = {0};
 int server_port = 0;
-char *conf = "./football.conf"
+char *conf = "./football.conf";
 
  int main(int argc, char **argv) {
     int opt;
@@ -22,7 +22,7 @@ char *conf = "./football.conf"
                 server_port = atoi(optarg);
                 break;
              default:
-                fprintf(srderr, "Usage :%s[-h host][-p port]!\n", argv[0]);
+                fprintf(stderr, "Usage :%s[-h host][-p port]!\n", argv[0]);
                 exit(1);
          }
      }
@@ -34,7 +34,7 @@ char *conf = "./football.conf"
          exit(1);
      }
      if(!server_port) server_port = atoi(get_value(conf, "SERVERPORT"));
-     if(!strlen(server_ip)) strcpy(server_ip, get_value(conf, SERVERIP));
+     if(!strlen(server_ip)) strcpy(server_ip, get_value(conf, "SERVERIP"));
 
      struct sockaddr_in server;
      server.sin_family = AF_INET;
@@ -49,7 +49,7 @@ char *conf = "./football.conf"
          perror("sock_udp");
          return 1;
      }
-     sendto(sockfd, "Hi", sizeof("hi"), 0, (struct sockaddr *)*server, len);
+     sendto(sockfd, "Hi", sizeof("hi"), 0, (struct sockaddr *)&server, len);
      
      recvfrom(sockfd, buf, sizeof(buf), 0, (struct sockaddr *) &server, &len);
 
