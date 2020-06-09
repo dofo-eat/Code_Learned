@@ -1,28 +1,29 @@
 /*************************************************************************
-	> File Name: server1.c
+	> File Name: server_su2.c
 	> Author: dofo-eat
 	> Mail:2354787023@qq.com 
-	> Created Time: 2020年06月04日 星期四 16时01分33秒
+	> Created Time: 2020年06月09日 星期二 16时06分49秒
  ************************************************************************/
-#include "../common/common.h"
-#include "../common/udp_server.h"
-#include "../common/color.h"
+#include "../common/udp_epoll.h"
 #include "../common/head.h"
+#include "../common/udp_server.h"
 #include "./game.h"
-#include<sys/epoll.h>
-char *conf = "server.conf";
 
-struct User *rteam;//存放两个队的用户端
+char *conf = "./server.conf";
+
+struct User *rteam;
 struct User *bteam;
 int data_port;
+int port = 0;
 
 //struct Map court;
-
+//int port = 0;
 int main(int argc, char **argv) {
-    int opt, port = 0, listener, epoll_fd;
-    /*while ((opt = getopt(argc, argv, "p:")) != -1) {
+    int opt, listener, epoll_fd;
+    pthread_t draw_t;
+    while ((opt = getopt(argc, argv, "p:")) != -1) {
         switch (opt) {
-            case 'p'://指定端口
+            case 'p':
                 port = atoi(optarg);
                 break;
             default:
@@ -30,9 +31,9 @@ int main(int argc, char **argv) {
                 exit(1);
         }
     }
-    argc -= (optind - 1);//选项个数减一
+    argc -= (optind - 1);
     argv += (optind - 1);
-*/
+
     if (argc > 1) {
         fprintf(stderr, "Usage: %s [-p port]\n", argv[0]);
         exit(1);
@@ -44,50 +45,56 @@ int main(int argc, char **argv) {
     court.height = atoi(get_value(conf, "LINES"));
     court.start.x = 1;
     court.start.y = 1;
-    //分配存储空间
+
     rteam = (struct User *)calloc(MAX, sizeof(struct User));
     bteam = (struct User *)calloc(MAX, sizeof(struct User));
-    
-    pthread_t draw_t; 
+
     if ((listener = socket_create_udp(port)) < 0) {
         perror("socket_create_udp");
         exit(1);
     }
+
     DBG(GREEN"INFO"NONE" : Server start on Port %d\n", port);
-    pthread_create(&draw_t, NULL, draw, NULL);//用来绘制界面
-    
+
+    //pthread_create(&draw_t, NULL, draw, NULL);
+
     epoll_fd = epoll_create(MAX * 2);
-    
+
     if (epoll_fd < 0) {
         perror("epoll_create");
         exit(1);
     }
-    
+
     struct epoll_event ev, events[MAX * 2];
 
     ev.events = EPOLLIN;
     ev.data.fd = listener;
 
     epoll_ctl(epoll_fd, EPOLL_CTL_ADD, listener, &ev);
-    struct LogData lg;
     struct sockaddr_in client;
     socklen_t len = sizeof(client);
+
     while (1) {
-        w_gotoxy_puts(Message, 1, 1, "waiting");
-        wrefresh(Message);
+        //w_gotoxy_puts(Message, 1, 1, "Waiting for login");
+        //wrefresh(Message);
+        DBG(YELLOW"EPOLL"NONE" :  before epoll_wait\n");
         int nfds = epoll_wait(epoll_fd, events, MAX * 2, -1);
+        DBG(YELLOW"EPOLL"NONE" :  After epoll_wait\n");
 
         for (int i = 0; i < nfds; i++) {
-            if(events[i].data.fd ==listener) {
+            char buff[512] = {0};
+            DBG(YELLOW"EPOLL"NONE" :  Doing with %dth fd\n", i);
+            if (events[i].data.fd == listener) {
                 //accept();
-                udp_accept();
+                udp_accept(epoll_fd, listener);
+            } else {
+                recv(events[i].data.fd, buff, sizeof(buff), 0);
+                printf(PINK"RECV"NONE" : %s\n", buff);
             }
-            char info[1024] = {0};
-            recvfrom(events[i].data.fd, (void *)&lg, sizeof(lg), 0, (struct sockaddr *)&client, &len);
-        sprintf(info, "Login : %s : %d", inet_ntoa(client.sin_addr), ntohs(client.sin_port));
-        w_gotoxy_puts(Message, 1, 2, info);
+            //char info[1024] = {0};
+            //w_gotoxy_puts(Message, 1, 2, info);
         }
+
     }
     return 0;
 }
-
