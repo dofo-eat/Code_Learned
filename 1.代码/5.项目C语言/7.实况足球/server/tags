@@ -1,0 +1,67 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Client	线程池.c	/^struct Client {$/;"	s	file:
+Football	game.h	/^WINDOW *Football, *Message, *Help, *Score, *Write;$/;"	v
+Help	game.h	/^WINDOW *Football, *Message, *Help, *Score, *Write;$/;"	v
+MAX	game.h	13;"	d
+MAXCLIENT	线程池.c	10;"	d	file:
+Message	game.h	/^WINDOW *Football, *Message, *Help, *Score, *Write;$/;"	v
+Score	game.h	/^WINDOW *Football, *Message, *Help, *Score, *Write;$/;"	v
+Write	game.h	/^WINDOW *Football, *Message, *Help, *Score, *Write;$/;"	v
+_GAME_H	game.h	8;"	d
+_THREADPOOL_H	threadpool.h	9;"	d
+bteam	server.c	/^struct User *bteam;$/;"	v	typeref:struct:User
+bteam	server1.c	/^struct User *bteam;$/;"	v	typeref:struct:User
+bteam	server2.c	/^struct User *bteam;$/;"	v	typeref:struct:User
+bteam	server_su.c	/^struct User *bteam;$/;"	v	typeref:struct:User
+bteam	server_su2.c	/^struct User *bteam;$/;"	v	typeref:struct:User
+chstr	线程池.c	/^void chstr(char *str) {$/;"	f
+client	线程池.c	/^struct Client *client;$/;"	v	typeref:struct:Client
+conf	server.c	/^char *conf = ".\/server.conf";$/;"	v
+conf	server1.c	/^char *conf = "server.conf";$/;"	v
+conf	server2.c	/^char *conf = ".\/server.conf";$/;"	v
+conf	server_su.c	/^char *conf = ".\/server.conf";$/;"	v
+conf	server_su2.c	/^char *conf = ".\/server.conf";$/;"	v
+counter	threadpool.h	/^    int counter;$/;"	m	struct:threadpool
+court	game.h	/^struct Map court;$/;"	v	typeref:struct:Map
+create_newwin	game.h	/^WINDOW *create_newwin(int width, int height, int start_x, int start_y) {$/;"	f
+data_port	server.c	/^int data_port;$/;"	v
+data_port	server1.c	/^int data_port;$/;"	v
+data_port	server2.c	/^int data_port;$/;"	v
+data_port	server_su.c	/^int data_port;$/;"	v
+data_port	server_su2.c	/^int data_port;$/;"	v
+destory_win	game.h	/^void destory_win(WINDOW *win) {$/;"	f
+draw	game.h	/^void *draw(void *arg) {$/;"	f
+fd	线程池.c	/^    int fd;$/;"	m	struct:Client	file:
+find_sub	线程池.c	/^int find_sub(){$/;"	f
+first	threadpool.h	/^    task_t *first;$/;"	m	struct:threadpool
+flag	线程池.c	/^    int flag;$/;"	m	struct:Client	file:
+gotoxy	game.h	/^void gotoxy(int x, int y) {$/;"	f
+gotoxy_puc	game.h	/^void gotoxy_puc(int x, int y, int c) {$/;"	f
+gotoxy_puts	game.h	/^void gotoxy_puts(int x, int y, char *s) {$/;"	f
+init_football	game.h	/^void init_football() {$/;"	f
+last	threadpool.h	/^    task_t *last;$/;"	m	struct:threadpool
+main	server.c	/^int main(int argc, char **argv) {$/;"	f
+main	server1.c	/^int main(int argc, char **argv) {$/;"	f
+main	server2.c	/^int main(int argc, char **argv){$/;"	f
+main	server_su.c	/^int main(int argc, char **argv) {$/;"	f
+main	server_su2.c	/^int main(int argc, char **argv) {$/;"	f
+main	线程池.c	/^int main(int argc, char **argv) {$/;"	f
+port	server2.c	/^int port = 0;$/;"	v
+port	server_su.c	/^int port = 0;$/;"	v
+port	server_su2.c	/^int port = 0;$/;"	v
+rteam	server.c	/^struct User *rteam;\/\/存放两个队的用户端$/;"	v	typeref:struct:User
+rteam	server1.c	/^struct User *rteam;\/\/存放两个队的用户端$/;"	v	typeref:struct:User
+rteam	server2.c	/^struct User *rteam;$/;"	v	typeref:struct:User
+rteam	server_su.c	/^struct User *rteam;$/;"	v	typeref:struct:User
+rteam	server_su2.c	/^struct User *rteam;$/;"	v	typeref:struct:User
+threadpool	threadpool.h	/^typedef struct threadpool {$/;"	s
+threadpool_t	threadpool.h	/^}threadpool_t;$/;"	t	typeref:struct:threadpool
+tid	线程池.c	/^    pthread_t tid;$/;"	m	struct:Client	file:
+w_gotoxy_putc	game.h	/^void w_gotoxy_putc(WINDOW *win, int x, int y, int c) {$/;"	f
+w_gotoxy_puts	game.h	/^void w_gotoxy_puts(WINDOW *win, int x, int y, char *s) {$/;"	f
+work	线程池.c	/^void *work(void *arg) {$/;"	f
