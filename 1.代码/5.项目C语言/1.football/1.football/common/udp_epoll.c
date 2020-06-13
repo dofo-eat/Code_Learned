@@ -35,11 +35,8 @@ void add_event_ptr(int epollfd, int fd, int events, struct User *user) {
     DBG(GREEN "Sub Thread" NONE" : After Epoll Add %s.\n", user->name);
 }
 
-void del_event(int epollfd, int fd, int events){
-    struct epoll_event ev;
-    ev.data.fd = fd;
-    ev.events = events;
-    epoll_ctl(epollfd, EPOLL_CTL_DEL, fd, &ev);
+void del_event(int epollfd, int fd){
+    epoll_ctl(epollfd, EPOLL_CTL_DEL, fd, NULL);
 }
 
 int udp_connect(int epollfd, struct sockaddr_in *serveraddr){
@@ -68,6 +65,14 @@ int udp_connect(int epollfd, struct sockaddr_in *serveraddr){
     return sockfd;
 }
 
+int check_online(struct LogRequest *request) {
+    for(int i = 0; i < MAX; i++) {
+        if(rteam[i].online && !strcmp(rteam[i].name, request->name)) return 1;
+        if(bteam[i].online && !strcmp(bteam[i].name, request->name)) return 1;
+        return 0;
+    }
+}
+
 int udp_accept(int epollfd, int fd, struct User *user){
     //epollfd用谁管理 fd用谁收
     struct sockaddr_in client;
@@ -83,9 +88,15 @@ int udp_accept(int epollfd, int fd, struct User *user){
     if(ret != sizeof(request)){
     //判断对方发的包是否能收起会不会发生沾包拆包问题, 不会发生，UDP报文承载量大于用户发的量，大多数情况不会有问题包的出现
         response.type = 1;//说明失败了
-        strcpy(response.msg, "Login failed");
+        strcpy(response.msg, "Login failed with Network error\n");
         sendto(fd, (void *)&response, sizeof(response), 0, (struct sockaddr *)&client, len);//将失败消息发给客户端
         return -1;
+    }
+
+    if(check_online(&request)) {
+        response.type = 1;
+        strcpy(response.msg, "you are already playing this game somewhere！、\n");
+        sendto(fd, (void *)&response, sizeof(response), 0, (struct sockaddr *)&client, len);//将失败消息发给客户端
     }
 
     response.type = 0;//成功了

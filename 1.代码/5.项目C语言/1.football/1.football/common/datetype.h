@@ -57,11 +57,14 @@ struct TransMsg {//客户端只负责控制，服务端负责计算
 #define FT_WALL 0x02//广播
 #define FT_MSG 0x04
 #define FT_ACK 0x08
+#define FT_FIN 0x10
 //0x16进制 某一个比特位的权值 1 2 4 8 四个比特代表四个状态
 
 struct FootBallMsg {
     int type;
     int size;
+    int team;
+    char name[20];
     char msg[MAXMSG];
 };
 

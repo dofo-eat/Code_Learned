@@ -30,4 +30,5 @@
 #include"./global.c"
 #include"./common.h"
 #include "../common/datetype.h"
+#include <curses.h>
 #endif

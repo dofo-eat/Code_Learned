@@ -5,6 +5,7 @@
 #include "../common/sub.reactor.h"
 #include "../common/heart_beat.h"
 #include "../game.h"
+#include "../common/server_exit.h"
 
 char *conf = "./server.conf";
 
@@ -58,9 +59,9 @@ int main(int argc, char **argv) {
     }
 
     DBG(GREEN"INFO"NONE" : Server start on Port %d\n", port);//DEBUG，-D _D
-    
-    //pthread_create(&draw_t, NULL, draw, NULL);//Draw interface
-    
+#ifdef _D    
+    pthread_create(&draw_t, NULL, draw, NULL);//Draw interface
+#endif
     epoll_fd = epoll_create(MAX * 2);
     repollfd = epoll_create(MAX);
     bepollfd = epoll_create(MAX);
@@ -85,11 +86,13 @@ int main(int argc, char **argv) {
     
     ev.events = EPOLLIN; 
     ev.data.fd = listener;
+
     epoll_ctl(epoll_fd, EPOLL_CTL_ADD, listener, &ev);
     
     struct sockaddr_in client;
     socklen_t len = sizeof(client);
     
+    Show_Message( , , "waiting for login.\n", 1);
     while (1) {
         //w_gotoxy_puts(Message, 1, 1, "waiting for login");
         DBG(YELLOW"Main Thread"NONE" : before epoll_wait\n");
@@ -104,8 +107,10 @@ int main(int argc, char **argv) {
                 //accept();
                 int new_fd = udp_accept(epoll_fd, listener, &user);
                 if (new_fd > 0) {
+                    sprintf(buff, "%s login the game\n",user.name);
                     DBG(YELLOW"Main Thread"NONE" :Add %s to %s sub_reactor.\n", user.name, (user.team ? "BLUE" : "RED"));
                     add_to_sub_reactor(&user);
+                    Show_Message( , , buff, 1);
                 }
             } else {
                 recv(events[i].data.fd, buff, sizeof(buff), 0);

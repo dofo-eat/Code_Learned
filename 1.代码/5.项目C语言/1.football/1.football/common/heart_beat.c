@@ -7,9 +7,12 @@
 
 #include "head.h"
 #include "datetype.h"
+#include "udp_epoll.h"
+#include "../game.h"
 #define MAX 50
 
 extern struct User *rteam, *bteam;
+extern int bepollfd, repollfd;
 
 void heart_beat_team(struct User *team) {
     struct FootBallMsg msg;
@@ -21,6 +24,15 @@ void heart_beat_team(struct User *team) {
                 continue;
             }
             send(team[i].fd, (void *)&msg, sizeof(msg), 0);
+            team[i].flag--;
+            if(team[i].flag <= 0) {
+                char tmp[512] = {0};
+                sprintf(tmp, "%s is remove from list.\n", team[i].name);
+                Show_Message(, NULL,tmp, 1);
+                team[i].online = 0;
+                int epollfd_tmp = (team[i].team ? bepollfd : repollfd);
+                del_event(epollfd_tmp, team[i].fd);
+            }
         }
     }
 }

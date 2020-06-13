@@ -1,12 +1,25 @@
 #include "../common/head.h"
 #include "../common/udp_client.h"
+#include "../common/client_recver.h"
+#include "../game.h"
 
 char server_ip[20] = {0};
 int server_port = 0;
 char *conf = "./football.conf";
 
+int sockfd;
+
+void logout(int signum) {
+    struct FootBallMsg msg;
+    msg.type = FT_FIN;
+    send(sockfd, (void *) &msg, sizeof(msg), 0);
+    endwin();
+    exit(1);
+}
+
 int main(int argc, char **argv) {
-    int opt, sockfd;
+    int opt;
+    pthread_t recv_t, draw_t;
     struct LogRequest request;
     struct LogResponse response;
     bzero(&request, sizeof(request));
@@ -47,6 +60,14 @@ int main(int argc, char **argv) {
     if (!strlen(response.msg)) strcpy(response.msg, get_value(conf, "LOGMSG"));
     if (!request.team) request.team = atoi(get_value(conf, "TEAM"));
     
+    court.width = atoi(get_value(conf, "COLS"));
+    court.heigth = atoi(get_value(conf, "LINES"));
+    court.start.x = 1;
+    court.start.y = 1;
+
+
+
+    signal(SIGINT, logout);
 
     struct sockaddr_in server;
     server.sin_family = AF_INET;
@@ -90,8 +111,11 @@ int main(int argc, char **argv) {
     DBG(GREEN"SERVER : "NONE" %s \n", response.msg);
     connect(sockfd, (struct sockaddr *)&server, len);
     //recvfrom(sockfd, buf, sizeof(buf), 0, (struct sockaddr *)&server, &len);
-    
-    pid_t pid;
+#ifdef _D    
+    pthread_create(&draw_t, NULL, draw, NULL);
+#endif
+    pthread_create(&recv_t, NULL, client_recv, NULL);
+   /* pid_t pid;
     if ((pid = fork()) < 0) {
         perror("fork");
         exit(1);
@@ -114,18 +138,21 @@ int main(int argc, char **argv) {
                 DBG(GREEN "Server Msg : "NONE"Unsupport Message Type.\n");
             }
         }
-    } else { //父进程
+    } else { //父进程*/
         while (1) {
             struct FootBallMsg msg;
             memset(msg.msg, 0, sizeof(msg.msg));
             msg.type = FT_MSG;
             DBG(YELLOW"Input Message :"NONE);
+            w_gotoxy_puts(Write, 1, 1, "input Messag :");
+            mvwscanw(Write, 2, 1, "%[^\n]s", msg.msg);
             fflush(stdout);
             scanf("%[^\n]s", msg.msg);
             getchar();
-            send(sockfd, (void *)&msg, sizeof(msg), 0);
+            if(strlen(msg.msg)) {
+                send(sockfd, (void *)&msg, sizeof(msg), 0);
+            }
         }
-    }
     sleep(10);
 
     return 0;
