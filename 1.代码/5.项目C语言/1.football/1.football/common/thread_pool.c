@@ -27,7 +27,7 @@ void do_echo(struct User *user) {
             DBG(L_RED" %s : %s\n"NONE, user->name, msg.msg);
         strcpy(msg.name, user->name);
         msg.team = user->team;
-        Show_Message(, user, msg.msg,1 );
+        Show_Message(, user, msg.msg, );
         send(user->fd, (void *)&msg, sizeof(msg), 0); 
     } else if(msg.type & FT_FIN) {
         DBG(RED"%s logout .\n", user->name);

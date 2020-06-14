@@ -110,7 +110,6 @@ int main(int argc, char **argv) {
 
     DBG(GREEN"SERVER : "NONE" %s \n", response.msg);
     connect(sockfd, (struct sockaddr *)&server, len);
-    //recvfrom(sockfd, buf, sizeof(buf), 0, (struct sockaddr *)&server, &len);
 #ifdef _D    
     pthread_create(&draw_t, NULL, draw, NULL);
 #endif
@@ -141,14 +140,14 @@ int main(int argc, char **argv) {
     } else { //父进程*/
         while (1) {
             struct FootBallMsg msg;
-            memset(msg.msg, 0, sizeof(msg.msg));
+            memset(&msg, 0, sizeof(msg.msg));
             msg.type = FT_MSG;
             DBG(YELLOW"Input Message :"NONE);
             w_gotoxy_puts(Write, 1, 1, "input Messag :");
             mvwscanw(Write, 2, 1, "%[^\n]s", msg.msg);
-            fflush(stdout);
-            scanf("%[^\n]s", msg.msg);
-            getchar();
+            //fflush(stdout);
+            //scanf("%[^\n]s", msg.msg);
+            //getchar();
             if(strlen(msg.msg)) {
                 send(sockfd, (void *)&msg, sizeof(msg), 0);
             }

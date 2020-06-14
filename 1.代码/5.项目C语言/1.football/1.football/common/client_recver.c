@@ -18,11 +18,12 @@ void *client_recv(void *arg) {
         recv(sockfd, (void *)&msg, sizeof(msg), 0);
         strcpy(user.name, msg.name);
         user.team = msg.team;
+        
         if(msg.type & FT_TEST) {
             DBG(RED"HeartBeat from Server ❤️"NONE"\n");
             msg.type = FT_ACK;
             send(sockfd, (void *)&msg, sizeof(msg), 0); 
-        } else if(msg.type &(FT_MSG | FT_WALL)) {
+        } else if(msg.type & FT_MSG ) {
             DBG(GREEN"Server Msg :"NONE"%s\n", msg.msg);
             Show_Message(, &user, msg.msg, 0);
         }else if (msg.type & FT_WALL) {

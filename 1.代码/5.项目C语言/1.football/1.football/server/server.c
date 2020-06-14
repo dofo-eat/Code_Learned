@@ -81,7 +81,7 @@ int main(int argc, char **argv) {
     pthread_create(&red_t, NULL, sub_reactor, (void *)&redQueue);
     pthread_create(&blue_t, NULL, sub_reactor, (void *)&blueQueue);
     pthread_create(&heart_t, NULL, heart_beat, NULL);
-
+    signal(SIGINT, server_exit);
     struct epoll_event ev, events[MAX * 2]; 
     
     ev.events = EPOLLIN; 
