@@ -1,0 +1,1 @@
+gcc client.c ../common/common.c ../common/udp_client.c ../common/client_recver.c ../common/game.c ../common/send_chat.c ../common/send_ctl.c -pthread -lncurses $1 $2 

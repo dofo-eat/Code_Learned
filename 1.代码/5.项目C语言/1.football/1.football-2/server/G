@@ -1,0 +1,2 @@
+gcc -std=gnu99 server.c ../common/common.c ../common/udp_server.c ../common/udp_epoll.c ../common/udp_client.c ../common/thread_pool.c ../common/sub_reactor.c ../common/server_exit.c ../common/game.c ../common/heart_beat.c ../common/server_re_drew.c -lcurses -lpthread $1 $2
+
