@@ -1,0 +1,16 @@
+/usr/include/cjson/cJSON.h
+/usr/lib64/pkgconfig/libcjson.pc
+/usr/lib64/libcjson.so.1.7.13
+/usr/lib64/libcjson.so.1
+/usr/lib64/libcjson.so
+/usr/lib64/cmake/cJSON/cjson.cmake
+/usr/lib64/cmake/cJSON/cjson-noconfig.cmake
+/usr/lib64/libcjson_utils.so.1.7.13
+/usr/lib64/libcjson_utils.so.1
+/usr/lib64/libcjson_utils.so
+/usr/include/cjson/cJSON_Utils.h
+/usr/lib64/pkgconfig/libcjson_utils.pc
+/usr/lib64/cmake/cJSON/cjson_utils.cmake
+/usr/lib64/cmake/cJSON/cjson_utils-noconfig.cmake
+/usr/lib64/cmake/cJSON/cJSONConfig.cmake
+/usr/lib64/cmake/cJSON/cJSONConfigVersion.cmake

@@ -1,0 +1,509 @@
+The system is: Linux - 3.10.0-1062.12.1.el7.x86_64 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /bin/cc 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/2.8.12.2/CompilerIdC/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec2653163458/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec2653163458.dir/build.make CMakeFiles/cmTryCompileExec2653163458.dir/build
+gmake[1]: 进入目录“/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp”
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2653163458.dir/testCCompiler.c.o
+/bin/cc    -o CMakeFiles/cmTryCompileExec2653163458.dir/testCCompiler.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec2653163458
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2653163458.dir/link.txt --verbose=1
+/bin/cc       CMakeFiles/cmTryCompileExec2653163458.dir/testCCompiler.c.o  -o cmTryCompileExec2653163458 -rdynamic 
+gmake[1]: 离开目录“/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp”
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec1337566023/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec1337566023.dir/build.make CMakeFiles/cmTryCompileExec1337566023.dir/build
+gmake[1]: 进入目录“/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp”
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1337566023.dir/CMakeCCompilerABI.c.o
+/bin/cc    -o CMakeFiles/cmTryCompileExec1337566023.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+Linking C executable cmTryCompileExec1337566023
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1337566023.dir/link.txt --verbose=1
+/bin/cc     -v CMakeFiles/cmTryCompileExec1337566023.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec1337566023 -rdynamic  
+使用内建 specs。
+COLLECT_GCC=/bin/cc
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/lto-wrapper
+目标：x86_64-redhat-linux
+配置为：../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,objc,obj-c++,java,fortran,ada,go,lto --enable-plugin --enable-initfini-array --disable-libgcj --with-isl=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/isl-install --with-cloog=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/cloog-install --enable-gnu-indirect-function --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
+线程模型：posix
+gcc 版本 4.8.5 20150623 (Red Hat 4.8.5-39) (GCC) 
+COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec1337566023' '-rdynamic' '-mtune=generic' '-march=x86-64'
+ /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/collect2 --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec1337566023 /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../.. CMakeFiles/cmTryCompileExec1337566023.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtend.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crtn.o
+gmake[1]: 离开目录“/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp”
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/bin/gmake "cmTryCompileExec1337566023/fast"]
+  ignore line: [/bin/gmake -f CMakeFiles/cmTryCompileExec1337566023.dir/build.make CMakeFiles/cmTryCompileExec1337566023.dir/build]
+  ignore line: [gmake[1]: 进入目录“/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp”]
+  ignore line: [/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec1337566023.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/bin/cc    -o CMakeFiles/cmTryCompileExec1337566023.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTryCompileExec1337566023]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1337566023.dir/link.txt --verbose=1]
+  ignore line: [/bin/cc     -v CMakeFiles/cmTryCompileExec1337566023.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec1337566023 -rdynamic  ]
+  ignore line: [使用内建 specs。]
+  ignore line: [COLLECT_GCC=/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/lto-wrapper]
+  ignore line: [目标：x86_64-redhat-linux]
+  ignore line: [配置为：../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,objc,obj-c++,java,fortran,ada,go,lto --enable-plugin --enable-initfini-array --disable-libgcj --with-isl=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/isl-install --with-cloog=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/cloog-install --enable-gnu-indirect-function --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux]
+  ignore line: [线程模型：posix]
+  ignore line: [gcc 版本 4.8.5 20150623 (Red Hat 4.8.5-39) (GCC) ]
+  ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec1337566023' '-rdynamic' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/collect2 --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec1337566023 /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../.. CMakeFiles/cmTryCompileExec1337566023.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtend.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crtn.o]
+    arg [/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/collect2] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--no-add-needed] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec1337566023] ==> ignore
+    arg [/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crt1.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crti.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtbegin.o] ==> ignore
+    arg [-L/usr/lib/gcc/x86_64-redhat-linux/4.8.5] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/4.8.5]
+    arg [-L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../..]
+    arg [CMakeFiles/cmTryCompileExec1337566023.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtend.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crtn.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/4.8.5] ==> [/usr/lib/gcc/x86_64-redhat-linux/4.8.5]
+  collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64] ==> [/usr/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../..] ==> [/usr/lib]
+  implicit libs: [c]
+  implicit dirs: [/usr/lib/gcc/x86_64-redhat-linux/4.8.5;/usr/lib64;/lib64;/usr/lib]
+  implicit fwks: []
+
+
+Performing C SOURCE FILE Test FLAG_SUPPORTED_stdc89 succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec1791784612/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec1791784612.dir/build.make CMakeFiles/cmTryCompileExec1791784612.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1791784612.dir/src.c.o
+/bin/cc   -DFLAG_SUPPORTED_stdc89   -std=c89 -o CMakeFiles/cmTryCompileExec1791784612.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec1791784612
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1791784612.dir/link.txt --verbose=1
+/bin/cc   -DFLAG_SUPPORTED_stdc89    CMakeFiles/cmTryCompileExec1791784612.dir/src.c.o  -o cmTryCompileExec1791784612 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_pedantic succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec3729563306/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec3729563306.dir/build.make CMakeFiles/cmTryCompileExec3729563306.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3729563306.dir/src.c.o
+/bin/cc   -std=c89 -DFLAG_SUPPORTED_pedantic   -pedantic -o CMakeFiles/cmTryCompileExec3729563306.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec3729563306
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3729563306.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -DFLAG_SUPPORTED_pedantic    CMakeFiles/cmTryCompileExec3729563306.dir/src.c.o  -o cmTryCompileExec3729563306 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wall succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec1196997432/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec1196997432.dir/build.make CMakeFiles/cmTryCompileExec1196997432.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1196997432.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -DFLAG_SUPPORTED_Wall   -Wall -o CMakeFiles/cmTryCompileExec1196997432.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec1196997432
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1196997432.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -DFLAG_SUPPORTED_Wall    CMakeFiles/cmTryCompileExec1196997432.dir/src.c.o  -o cmTryCompileExec1196997432 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wextra succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec2757118449/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec2757118449.dir/build.make CMakeFiles/cmTryCompileExec2757118449.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2757118449.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -DFLAG_SUPPORTED_Wextra   -Wextra -o CMakeFiles/cmTryCompileExec2757118449.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec2757118449
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2757118449.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -Wall -DFLAG_SUPPORTED_Wextra    CMakeFiles/cmTryCompileExec2757118449.dir/src.c.o  -o cmTryCompileExec2757118449 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Werror succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec3667507157/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec3667507157.dir/build.make CMakeFiles/cmTryCompileExec3667507157.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3667507157.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -DFLAG_SUPPORTED_Werror   -Werror -o CMakeFiles/cmTryCompileExec3667507157.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec3667507157
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3667507157.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -DFLAG_SUPPORTED_Werror    CMakeFiles/cmTryCompileExec3667507157.dir/src.c.o  -o cmTryCompileExec3667507157 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wstrictprototypes succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec702368379/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec702368379.dir/build.make CMakeFiles/cmTryCompileExec702368379.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec702368379.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -DFLAG_SUPPORTED_Wstrictprototypes   -Wstrict-prototypes -o CMakeFiles/cmTryCompileExec702368379.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec702368379
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec702368379.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -DFLAG_SUPPORTED_Wstrictprototypes    CMakeFiles/cmTryCompileExec702368379.dir/src.c.o  -o cmTryCompileExec702368379 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wwritestrings succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec3535525903/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec3535525903.dir/build.make CMakeFiles/cmTryCompileExec3535525903.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3535525903.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -DFLAG_SUPPORTED_Wwritestrings   -Wwrite-strings -o CMakeFiles/cmTryCompileExec3535525903.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec3535525903
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3535525903.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -DFLAG_SUPPORTED_Wwritestrings    CMakeFiles/cmTryCompileExec3535525903.dir/src.c.o  -o cmTryCompileExec3535525903 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wshadow succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec3066737619/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec3066737619.dir/build.make CMakeFiles/cmTryCompileExec3066737619.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3066737619.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -DFLAG_SUPPORTED_Wshadow   -Wshadow -o CMakeFiles/cmTryCompileExec3066737619.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec3066737619
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3066737619.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -DFLAG_SUPPORTED_Wshadow    CMakeFiles/cmTryCompileExec3066737619.dir/src.c.o  -o cmTryCompileExec3066737619 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Winitself succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec2423857835/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec2423857835.dir/build.make CMakeFiles/cmTryCompileExec2423857835.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2423857835.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -DFLAG_SUPPORTED_Winitself   -Winit-self -o CMakeFiles/cmTryCompileExec2423857835.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec2423857835
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2423857835.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -DFLAG_SUPPORTED_Winitself    CMakeFiles/cmTryCompileExec2423857835.dir/src.c.o  -o cmTryCompileExec2423857835 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wcastalign succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec3022474142/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec3022474142.dir/build.make CMakeFiles/cmTryCompileExec3022474142.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3022474142.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -DFLAG_SUPPORTED_Wcastalign   -Wcast-align -o CMakeFiles/cmTryCompileExec3022474142.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec3022474142
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3022474142.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -DFLAG_SUPPORTED_Wcastalign    CMakeFiles/cmTryCompileExec3022474142.dir/src.c.o  -o cmTryCompileExec3022474142 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wformat2 succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec2696988971/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec2696988971.dir/build.make CMakeFiles/cmTryCompileExec2696988971.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2696988971.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -DFLAG_SUPPORTED_Wformat2   -Wformat=2 -o CMakeFiles/cmTryCompileExec2696988971.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec2696988971
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2696988971.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -DFLAG_SUPPORTED_Wformat2    CMakeFiles/cmTryCompileExec2696988971.dir/src.c.o  -o cmTryCompileExec2696988971 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wmissingprototypes succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec829888491/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec829888491.dir/build.make CMakeFiles/cmTryCompileExec829888491.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec829888491.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -DFLAG_SUPPORTED_Wmissingprototypes   -Wmissing-prototypes -o CMakeFiles/cmTryCompileExec829888491.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec829888491
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec829888491.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -DFLAG_SUPPORTED_Wmissingprototypes    CMakeFiles/cmTryCompileExec829888491.dir/src.c.o  -o cmTryCompileExec829888491 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wstrictoverflow2 succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec2770389625/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec2770389625.dir/build.make CMakeFiles/cmTryCompileExec2770389625.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2770389625.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -DFLAG_SUPPORTED_Wstrictoverflow2   -Wstrict-overflow=2 -o CMakeFiles/cmTryCompileExec2770389625.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec2770389625
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2770389625.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -DFLAG_SUPPORTED_Wstrictoverflow2    CMakeFiles/cmTryCompileExec2770389625.dir/src.c.o  -o cmTryCompileExec2770389625 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wcastqual succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec3494904336/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec3494904336.dir/build.make CMakeFiles/cmTryCompileExec3494904336.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3494904336.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -DFLAG_SUPPORTED_Wcastqual   -Wcast-qual -o CMakeFiles/cmTryCompileExec3494904336.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec3494904336
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3494904336.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -DFLAG_SUPPORTED_Wcastqual    CMakeFiles/cmTryCompileExec3494904336.dir/src.c.o  -o cmTryCompileExec3494904336 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wundef succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec1507669665/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec1507669665.dir/build.make CMakeFiles/cmTryCompileExec1507669665.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1507669665.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -DFLAG_SUPPORTED_Wundef   -Wundef -o CMakeFiles/cmTryCompileExec1507669665.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec1507669665
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1507669665.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -DFLAG_SUPPORTED_Wundef    CMakeFiles/cmTryCompileExec1507669665.dir/src.c.o  -o cmTryCompileExec1507669665 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wswitchdefault succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec3591638834/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec3591638834.dir/build.make CMakeFiles/cmTryCompileExec3591638834.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3591638834.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -DFLAG_SUPPORTED_Wswitchdefault   -Wswitch-default -o CMakeFiles/cmTryCompileExec3591638834.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec3591638834
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3591638834.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -DFLAG_SUPPORTED_Wswitchdefault    CMakeFiles/cmTryCompileExec3591638834.dir/src.c.o  -o cmTryCompileExec3591638834 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wconversion succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec3529668119/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec3529668119.dir/build.make CMakeFiles/cmTryCompileExec3529668119.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3529668119.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -DFLAG_SUPPORTED_Wconversion   -Wconversion -o CMakeFiles/cmTryCompileExec3529668119.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec3529668119
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3529668119.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -DFLAG_SUPPORTED_Wconversion    CMakeFiles/cmTryCompileExec3529668119.dir/src.c.o  -o cmTryCompileExec3529668119 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wccompat succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec2308228307/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec2308228307.dir/build.make CMakeFiles/cmTryCompileExec2308228307.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2308228307.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -Wconversion -DFLAG_SUPPORTED_Wccompat   -Wc++-compat -o CMakeFiles/cmTryCompileExec2308228307.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec2308228307
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2308228307.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -Wconversion -DFLAG_SUPPORTED_Wccompat    CMakeFiles/cmTryCompileExec2308228307.dir/src.c.o  -o cmTryCompileExec2308228307 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_fstackprotectorstrong succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec2114291005/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec2114291005.dir/build.make CMakeFiles/cmTryCompileExec2114291005.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2114291005.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -Wconversion -Wc++-compat -DFLAG_SUPPORTED_fstackprotectorstrong   -fstack-protector-strong -o CMakeFiles/cmTryCompileExec2114291005.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec2114291005
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2114291005.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -Wconversion -Wc++-compat -DFLAG_SUPPORTED_fstackprotectorstrong    CMakeFiles/cmTryCompileExec2114291005.dir/src.c.o  -o cmTryCompileExec2114291005 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wdoublepromotion succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec2810752746/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec2810752746.dir/build.make CMakeFiles/cmTryCompileExec2810752746.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2810752746.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -Wconversion -Wc++-compat -fstack-protector-strong -DFLAG_SUPPORTED_Wdoublepromotion   -Wdouble-promotion -o CMakeFiles/cmTryCompileExec2810752746.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec2810752746
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2810752746.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -Wconversion -Wc++-compat -fstack-protector-strong -DFLAG_SUPPORTED_Wdoublepromotion    CMakeFiles/cmTryCompileExec2810752746.dir/src.c.o  -o cmTryCompileExec2810752746 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wparentheses succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec688391540/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec688391540.dir/build.make CMakeFiles/cmTryCompileExec688391540.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec688391540.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -Wconversion -Wc++-compat -fstack-protector-strong -Wdouble-promotion -DFLAG_SUPPORTED_Wparentheses   -Wparentheses -o CMakeFiles/cmTryCompileExec688391540.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec688391540
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec688391540.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -Wconversion -Wc++-compat -fstack-protector-strong -Wdouble-promotion -DFLAG_SUPPORTED_Wparentheses    CMakeFiles/cmTryCompileExec688391540.dir/src.c.o  -o cmTryCompileExec688391540 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wunusedmacros succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec4134954461/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec4134954461.dir/build.make CMakeFiles/cmTryCompileExec4134954461.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec4134954461.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -Wconversion -Wc++-compat -fstack-protector-strong -Wdouble-promotion -Wparentheses -DFLAG_SUPPORTED_Wunusedmacros   -Wunused-macros -o CMakeFiles/cmTryCompileExec4134954461.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec4134954461
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4134954461.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -Wconversion -Wc++-compat -fstack-protector-strong -Wdouble-promotion -Wparentheses -DFLAG_SUPPORTED_Wunusedmacros    CMakeFiles/cmTryCompileExec4134954461.dir/src.c.o  -o cmTryCompileExec4134954461 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wswitchenum succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec1191332643/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec1191332643.dir/build.make CMakeFiles/cmTryCompileExec1191332643.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1191332643.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -Wconversion -Wc++-compat -fstack-protector-strong -Wdouble-promotion -Wparentheses -Wunused-macros -DFLAG_SUPPORTED_Wswitchenum   -Wswitch-enum -o CMakeFiles/cmTryCompileExec1191332643.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec1191332643
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1191332643.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -Wconversion -Wc++-compat -fstack-protector-strong -Wdouble-promotion -Wparentheses -Wunused-macros -DFLAG_SUPPORTED_Wswitchenum    CMakeFiles/cmTryCompileExec1191332643.dir/src.c.o  -o cmTryCompileExec1191332643 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_fvisibilityhidden succeded with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec2343374191/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec2343374191.dir/build.make CMakeFiles/cmTryCompileExec2343374191.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2343374191.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -Wconversion -Wc++-compat -fstack-protector-strong -Wdouble-promotion -Wparentheses -Wunused-macros -Wswitch-enum -DFLAG_SUPPORTED_fvisibilityhidden   -fvisibility=hidden -o CMakeFiles/cmTryCompileExec2343374191.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec2343374191
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2343374191.dir/link.txt --verbose=1
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -Wconversion -Wc++-compat -fstack-protector-strong -Wdouble-promotion -Wparentheses -Wunused-macros -Wswitch-enum -DFLAG_SUPPORTED_fvisibilityhidden    CMakeFiles/cmTryCompileExec2343374191.dir/src.c.o  -o cmTryCompileExec2343374191 -rdynamic 
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }

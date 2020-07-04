@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/suxinxin/1.Code_learn/cJSON-master/cJSON.h
+stddef.h
+-
+
+/home/suxinxin/1.Code_learn/cJSON-master/cJSON_Utils.c
+ctype.h
+-
+string.h
+-
+stdlib.h
+-
+stdio.h
+-
+limits.h
+-
+math.h
+-
+float.h
+-
+math.h
+-
+cJSON_Utils.h
+/home/suxinxin/1.Code_learn/cJSON-master/cJSON_Utils.h
+
+/home/suxinxin/1.Code_learn/cJSON-master/cJSON_Utils.h
+cJSON.h
+/home/suxinxin/1.Code_learn/cJSON-master/cJSON.h
+

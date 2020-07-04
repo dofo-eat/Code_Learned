@@ -1,0 +1,64 @@
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wcomma failed with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec1711904326/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec1711904326.dir/build.make CMakeFiles/cmTryCompileExec1711904326.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1711904326.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -Wconversion -Wc++-compat -fstack-protector-strong -DFLAG_SUPPORTED_Wcomma   -Wcomma -o CMakeFiles/cmTryCompileExec1711904326.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option '-Wcomma'
+gmake[1]: *** [CMakeFiles/cmTryCompileExec1711904326.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+gmake: *** [cmTryCompileExec1711904326/fast] Error 2
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wformatoverflow failed with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec263807952/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec263807952.dir/build.make CMakeFiles/cmTryCompileExec263807952.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec263807952.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -Wconversion -Wc++-compat -fstack-protector-strong -Wdouble-promotion -Wparentheses -DFLAG_SUPPORTED_Wformatoverflow   -Wformat-overflow -o CMakeFiles/cmTryCompileExec263807952.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option '-Wformat-overflow'
+gmake[1]: *** [CMakeFiles/cmTryCompileExec263807952.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+gmake: *** [cmTryCompileExec263807952/fast] Error 2
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wmissingvariabledeclarations failed with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec2708114608/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec2708114608.dir/build.make CMakeFiles/cmTryCompileExec2708114608.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2708114608.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -Wconversion -Wc++-compat -fstack-protector-strong -Wdouble-promotion -Wparentheses -Wunused-macros -DFLAG_SUPPORTED_Wmissingvariabledeclarations   -Wmissing-variable-declarations -o CMakeFiles/cmTryCompileExec2708114608.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option '-Wmissing-variable-declarations'
+gmake[1]: *** [CMakeFiles/cmTryCompileExec2708114608.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+gmake: *** [cmTryCompileExec2708114608/fast] Error 2
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wusedbutmarkedunused failed with the following output:
+Change Dir: /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/bin/gmake "cmTryCompileExec2620936210/fast"
+/bin/gmake -f CMakeFiles/cmTryCompileExec2620936210.dir/build.make CMakeFiles/cmTryCompileExec2620936210.dir/build
+gmake[1]: Entering directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2620936210.dir/src.c.o
+/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -Wconversion -Wc++-compat -fstack-protector-strong -Wdouble-promotion -Wparentheses -Wunused-macros -DFLAG_SUPPORTED_Wusedbutmarkedunused   -Wused-but-marked-unused -o CMakeFiles/cmTryCompileExec2620936210.dir/src.c.o   -c /home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option '-Wused-but-marked-unused'
+gmake[1]: *** [CMakeFiles/cmTryCompileExec2620936210.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/suxinxin/1.Code_learn/cJSON-master/build/CMakeFiles/CMakeTmp'
+gmake: *** [cmTryCompileExec2620936210/fast] Error 2
+
+Source file was:
+int main(void) { return 0; }

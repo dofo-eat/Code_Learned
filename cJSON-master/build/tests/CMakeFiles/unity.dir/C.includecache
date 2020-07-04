@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/suxinxin/1.Code_learn/cJSON-master/tests/unity/examples/unity_config.h
+
+/home/suxinxin/1.Code_learn/cJSON-master/tests/unity/src/unity.c
+unity.h
+/home/suxinxin/1.Code_learn/cJSON-master/tests/unity/src/unity.h
+stddef.h
+-
+
+/home/suxinxin/1.Code_learn/cJSON-master/tests/unity/src/unity.h
+unity_internals.h
+/home/suxinxin/1.Code_learn/cJSON-master/tests/unity/src/unity_internals.h
+
+/home/suxinxin/1.Code_learn/cJSON-master/tests/unity/src/unity_internals.h
+../examples/unity_config.h
+/home/suxinxin/1.Code_learn/cJSON-master/tests/unity/examples/unity_config.h
+setjmp.h
+-
+math.h
+-
+stdint.h
+-
+limits.h
+-
+stdio.h
+-
+stdio.h
+-
+

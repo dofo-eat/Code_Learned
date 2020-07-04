@@ -1,0 +1,10 @@
+FILE(REMOVE_RECURSE
+  "CMakeFiles/cjson_add.dir/cjson_add.c.o"
+  "cjson_add.pdb"
+  "cjson_add"
+)
+
+# Per-language clean rules from dependency scanning.
+FOREACH(lang C)
+  INCLUDE(CMakeFiles/cjson_add.dir/cmake_clean_${lang}.cmake OPTIONAL)
+ENDFOREACH(lang)
