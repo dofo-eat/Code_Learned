@@ -1,0 +1,39 @@
+sh
+#3 py
+
+CC="gcc -lm -Wall"
+GPP="g++ -std=c++11 -Wall"
+
+function CheckType() {
+    type=`echo $1 | tr "." "\n" | tail -1`
+    if [[ ${type} == "c" ]]; then
+        return 0
+    elif [[ ${type} == "cpp" ]]; then
+        return 1
+    elif [[ ${type} == "sh" ]]; then
+        return 2
+    elif [[ ${type} == "py" ]]; then
+        return 3
+    else
+        exit
+    fi
+}
+
+File=$1
+Args=($@)
+unset Args[0]
+
+OutFile=`echo ${File} | tr "." "\n" | head -1 | tr "\n" "."`
+
+CheckType ${File}
+re=$?
+
+if [[ ${re} -eq 0 ]]; then
+    ${CC} ${File} -o ${OutFile}exe && time ./${OutFile}exe ${Args[*]} && rm -f ${OutFile}exe
+elif [[ ${re} -eq 1 ]]; then
+    ${GPP} ${File} -o ${OutFile}exe && time ./${OutFile}exe ${Args[*]}&& rm -f ${OutFile}exe
+elif [[ ${re} -eq 2 ]]; then
+    time bash ${File} ${Args[*]}
+else
+    time python3 ${File} ${Args[*]}
+fi

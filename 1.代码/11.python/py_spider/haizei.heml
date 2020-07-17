@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html> <!--<![endif]-->
+
+
+
+<html lang="zh_CN" class="">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>海贼宝藏 - 海贼精神，无往不前 - Powered By EduSoho</title>
+      <meta name="keywords"
+          content="
+海贼科技,海贼宝藏,算法,编程,C/C++,计算机培训,haizeix,haizei"/>
+    <meta name="description"
+          content="海贼科技，传授互联网时代的航海术"/>
+    <meta name="format-detection"
+          content=""/>
+    <meta content="y5rYQZHilxdz59zjVHq6TCG_ASFO4ss8hi64qGC9X10" name="csrf-token"/>
+    <meta content="0" name="is-login"/>
+    <meta content="0" name="wechat_login_bind"/>
+  
+
+  
+      <link rel="icon" href="/files/system/2017/05-16/20535422f3c4193367.png?version=8.3.30" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/files/system/2017/05-16/20535422f3c4193367.png?version=8.3.30" type="image/x-icon" media="screen"/>
+  
+  <!--[if lt IE 9]>
+  <script src="/static-dist/libs/html5shiv.js?version=8.3.30"></script>
+  <script src="/static-dist/es5-shim/es5-shim.js?version=8.3.30"></script>
+  <script src="/static-dist/es5-shim/es5-sham.js?version=8.3.30"></script>
+  <![endif]-->
+
+          <link href="/static-dist/app/css/bootstrap.css?version=8.3.30" rel="stylesheet" />
+<link href="/static-dist/app/css/main.css?version=8.3.30" rel="stylesheet" />
+<link href="/static-dist/app/css/main-v2.css?version=8.3.30" rel="stylesheet" />
+
+
+
+  
+  </head>
+<body class="es-main-default es-nav-default homepage">
+
+<!--[if lt IE 9]>
+<script src="/static-dist/libs/fix-ie.js?version=8.3.30"></script>
+<style>
+  .lt-ie9 {
+    overflow: hidden;
+  }
+  .ie-mask {
+    z-index: 999999;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+    background: #000;
+  }
+  .ie-alert-wrap {
+    position: absolute;
+    z-index: 1000000;
+    margin: -200px auto 0;
+    top: 50%;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+  .ie-alert {
+    width: 514px;
+    height: 397px;
+    margin: 0 auto;
+  }
+  .ie-alert__chrome,
+  .ie-alert__firefox {
+    position: absolute;
+    z-index: 1000001;
+    display: block;
+    bottom: 48px;
+    width: 60px;
+    height: 80px;
+  }
+  .ie-alert__chrome {
+    left: 50%;
+    margin-left: -80px;
+  }
+  .ie-alert__firefox {
+    right: 50%;
+    margin-right: -80px;
+  }
+</style>
+<div class="ie-mask"></div>
+<div class="ie-alert-wrap">
+  <div class="ie-alert" style="background:url('/static-dist/app/img/browser/browser_update.png?version=8.3.30')">
+    <a href="http://www.baidu.com/s?wd=%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8" target="_blank" class="ie-alert__chrome"></a>
+    <a href="http://firefox.com.cn/download/" target="_blank" class="ie-alert__firefox"></a>
+  </div>
+</div>
+
+<![endif]-->
+
+  <div class="es-wrap">
+
+                  
+<header class="es-header navbar">
+  <div class="navbar-header">
+  <div class="visible-xs  navbar-mobile">
+    <a href="javascript:;" class="navbar-more js-navbar-more">
+      <i class="es-icon es-icon-menu"></i>
+    </a>
+    <div class="html-mask"></div>
+    <div class="nav-mobile">
+      <form class="navbar-form" action="/search" method="get">
+        <div class="form-group">
+          <input class="form-control" placeholder="搜索" name="q">
+          <button class="button es-icon es-icon-search"></button>
+        </div>
+      </form>
+
+      <ul class="nav navbar-nav">
+        
+    
+      <li class="nav-hover">
+  <a href="http://haizeix.com" >潘多拉魔盒  <b class="caret"></b></a>
+      <ul class="dropdown-menu" role="menu">
+              <li><a href="https://nanti.jisuanke.com/"  target="_blank">计蒜客（在线交互式编码）</a></li>
+              <li><a href="https://www.nowcoder.com/"  target="_blank">牛客网（面试真题测评）</a></li>
+              <li><a href="https://projecteuler.net"  target="_blank">ProjectEuler（英文原站）</a></li>
+              <li><a href="http://pe-cn.github.io/"  target="_blank">ProjectEuler（中英对照）</a></li>
+              <li><a href="https://leetcode-cn.com/"  target="_blank">Leetcode（在线刷面试算法）</a></li>
+              <li><a href="http://en.cppreference.com/w/"  target="_blank">C/CPP 参考手册（在线文档+运行环境）</a></li>
+              <li><a href="https://oschina.gitee.io/learn-git-branching/"  target="_blank">Git 操作在线学习</a></li>
+          </ul>
+  </li>      
+      <li class="nav-hover">
+  <a href="https://www.jisuanke.com/plan?object=%E5%85%B6%E4%BB%96&amp;subobject=%E6%B5%B7%E8%B4%BC%E5%AE%9D%E8%97%8F" target="_blank">计蒜客（海贼宝藏）  <b class="caret"></b></a>
+      <ul class="dropdown-menu" role="menu">
+              <li><a href="https://www.jisuanke.com/course/786"  target="_blank">C语言程序设计</a></li>
+              <li><a href="https://www.jisuanke.com/course/787"  target="_blank">C++程序设计</a></li>
+              <li><a href="https://www.jisuanke.com/course/788"  target="_blank">Python程序设计</a></li>
+              <li><a href="https://www.jisuanke.com/course/789"  target="_blank">工程实践基础</a></li>
+              <li><a href="https://www.jisuanke.com/course/790"  target="_blank">面向对象编程（轮子哥）</a></li>
+              <li><a href="https://www.jisuanke.com/course/791"  target="_blank">操作系统入门与系统编程</a></li>
+              <li><a href="https://www.jisuanke.com/course/792"  target="_blank">数据结构</a></li>
+              <li><a href="https://www.jisuanke.com/course/799"  target="_blank">求职算法辅导</a></li>
+          </ul>
+  </li>      
+      <li class="nav-hover">
+  <a href="http://haizeix.com" >在线简历编写  <b class="caret"></b></a>
+      <ul class="dropdown-menu" role="menu">
+              <li><a href="https://www.overleaf.com/"  >OverLeaf（推荐）</a></li>
+              <li><a href="https://www.latextemplates.com/cat/curricula-vitae"  >Latex 简历模板（推荐）</a></li>
+              <li><a href="https://www.sharelatex.com/"  >ShareLatex</a></li>
+          </ul>
+  </li>      
+      <li class="nav-hover">
+  <a href="https://haizeix.com" >海贼 NOI  <b class="caret"></b></a>
+      <ul class="dropdown-menu" role="menu">
+              <li><a href="https://noi.haizeix.com/haizei/users/index.php/Login"  target="_blank">海贼 NOI 学生管理平台</a></li>
+              <li><a href="http://oj.haizeix.com"  target="_blank"> 海贼 OJ 在线评测系统</a></li>
+          </ul>
+  </li>      
+      <li class="nav-hover">
+  <a href="http://haizeix.com" >其他  <b class="caret"></b></a>
+      <ul class="dropdown-menu" role="menu">
+              <li><a href="/page/aboutus"  >关于海贼</a></li>
+              <li><a href="/teacher"  >海贼船长</a></li>
+              <li><a href="/page/questions"  >常见问题</a></li>
+          </ul>
+  </li>        </ul>
+    </div>
+  </div>
+    <a href="/" class="navbar-brand">
+          <img src="/files/../files/system/2017/06-25/151022e72ce7760444.png">
+      </a>
+</div>  <nav class="collapse navbar-collapse">
+    <ul class="nav navbar-nav clearfix hidden-xs " id="nav">
+      
+    
+      <li class="nav-hover">
+  <a href="http://haizeix.com" >潘多拉魔盒  <b class="caret"></b></a>
+      <ul class="dropdown-menu" role="menu">
+              <li><a href="https://nanti.jisuanke.com/"  target="_blank">计蒜客（在线交互式编码）</a></li>
+              <li><a href="https://www.nowcoder.com/"  target="_blank">牛客网（面试真题测评）</a></li>
+              <li><a href="https://projecteuler.net"  target="_blank">ProjectEuler（英文原站）</a></li>
+              <li><a href="http://pe-cn.github.io/"  target="_blank">ProjectEuler（中英对照）</a></li>
+              <li><a href="https://leetcode-cn.com/"  target="_blank">Leetcode（在线刷面试算法）</a></li>
+              <li><a href="http://en.cppreference.com/w/"  target="_blank">C/CPP 参考手册（在线文档+运行环境）</a></li>
+              <li><a href="https://oschina.gitee.io/learn-git-branching/"  target="_blank">Git 操作在线学习</a></li>
+          </ul>
+  </li>      
+      <li class="nav-hover">
+  <a href="https://www.jisuanke.com/plan?object=%E5%85%B6%E4%BB%96&amp;subobject=%E6%B5%B7%E8%B4%BC%E5%AE%9D%E8%97%8F" target="_blank">计蒜客（海贼宝藏）  <b class="caret"></b></a>
+      <ul class="dropdown-menu" role="menu">
+              <li><a href="https://www.jisuanke.com/course/786"  target="_blank">C语言程序设计</a></li>
+              <li><a href="https://www.jisuanke.com/course/787"  target="_blank">C++程序设计</a></li>
+              <li><a href="https://www.jisuanke.com/course/788"  target="_blank">Python程序设计</a></li>
+              <li><a href="https://www.jisuanke.com/course/789"  target="_blank">工程实践基础</a></li>
+              <li><a href="https://www.jisuanke.com/course/790"  target="_blank">面向对象编程（轮子哥）</a></li>
+              <li><a href="https://www.jisuanke.com/course/791"  target="_blank">操作系统入门与系统编程</a></li>
+              <li><a href="https://www.jisuanke.com/course/792"  target="_blank">数据结构</a></li>
+              <li><a href="https://www.jisuanke.com/course/799"  target="_blank">求职算法辅导</a></li>
+          </ul>
+  </li>      
+      <li class="nav-hover">
+  <a href="http://haizeix.com" >在线简历编写  <b class="caret"></b></a>
+      <ul class="dropdown-menu" role="menu">
+              <li><a href="https://www.overleaf.com/"  >OverLeaf（推荐）</a></li>
+              <li><a href="https://www.latextemplates.com/cat/curricula-vitae"  >Latex 简历模板（推荐）</a></li>
+              <li><a href="https://www.sharelatex.com/"  >ShareLatex</a></li>
+          </ul>
+  </li>      
+      <li class="nav-hover">
+  <a href="https://haizeix.com" >海贼 NOI  <b class="caret"></b></a>
+      <ul class="dropdown-menu" role="menu">
+              <li><a href="https://noi.haizeix.com/haizei/users/index.php/Login"  target="_blank">海贼 NOI 学生管理平台</a></li>
+              <li><a href="http://oj.haizeix.com"  target="_blank"> 海贼 OJ 在线评测系统</a></li>
+          </ul>
+  </li>      
+      <li class="nav-hover">
+  <a href="http://haizeix.com" >其他  <b class="caret"></b></a>
+      <ul class="dropdown-menu" role="menu">
+              <li><a href="/page/aboutus"  >关于海贼</a></li>
+              <li><a href="/teacher"  >海贼船长</a></li>
+              <li><a href="/page/questions"  >常见问题</a></li>
+          </ul>
+  </li>      </ul>
+    <div class="navbar-user  left ">
+  <ul class="nav user-nav">
+              <li class="user-avatar-li nav-hover visible-xs">
+  <a href="javascript:;" class="user-avatar-toggle">
+    <img class="cd-avatar cd-avatar-xs" src="/assets/img/default/avatar.png?version=8.3.30">
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="user-nav-li-login">
+      <a href="/login?goto=/">
+        <i class="es-icon es-icon-denglu"></i>登录
+      </a>
+    </li>
+    <li class="user-nav-li-register">
+      <a href="/register?goto=/">
+        <i class="es-icon es-icon-zhuce"></i>注册
+      </a>
+    </li>
+          </ul>
+</li>
+
+<li class="visitor-li hidden-xs"><a href="/login?goto=/">登录</a></li>
+<li class="visitor-li hidden-xs"><a href="/register?goto=/">注册</a></li>    
+      </ul>
+  <form class="navbar-form navbar-right hidden-xs" action="/search" method="get">
+    <div class="form-group">
+      <input class="form-control js-search" value="" name="q" placeholder="搜索">
+      <button class="button es-icon es-icon-search"></button>
+    </div>
+  </form>
+</div>  </nav>
+</header>          
+                <section class="es-poster swiper-container">
+  <div class="swiper-wrapper">
+                            <div class="swiper-slide swiper-hidden" style="background: #0984f7;">
+            <div >
+              <a href="https://www.haizeix.com/course/186" target="_blank" ><img class="img-responsive" src="/files/system/2020/06-18/112458a74a4e586553.png?version=8.3.30">
+              </a>
+            </div>
+          </div>
+                                                    <div class="swiper-slide swiper-hidden" style="background: #3ec768;">
+            <div >
+              <a href="https://www.haizeix.com/course/450" target="_blank" ><img class="img-responsive" src="/files/system/2020/06-17/2040375d7ad8370231.png?version=8.3.30">
+              </a>
+            </div>
+          </div>
+                                                                        <div class="swiper-slide swiper-hidden" style="background: #3ec768;">
+            <div >
+              <a href="https://www.haizeix.com/course/450" target="_blank" ><img class="img-responsive" src="/files/system/2020/05-07/18285132fb17435357.png?version=8.3.30">
+              </a>
+            </div>
+          </div>
+                              </div>
+  <div class="swiper-pager"></div>
+</section>
+                                
+        
+                                                                    
+<!-- 推荐班级 -->
+  <section class="class-section ">
+    <div class="container">
+      <div class="text-line">
+        <h5>
+          <span>海贼高薪班</span>
+          <div class="line"></div>
+        </h5>
+        <div class="subtitle">教室上完课，回家能复习，海贼给你全新上课体验！</div>
+      </div>
+      <div class="recommend-class-list row">
+                  <div class="col-md-3 col-xs-6">
+             <div class="class-item">
+  <div class="class-img-wrap">
+    <a class="class-img" href="/classroom/10">
+      <img src="/assets/img/default/lazyload_class.png?version=8.3.30" alt="海贼 X 班（C++高薪班）" class="img-responsive" data-echo="/files/course/2017/12-05/10372665101e940382.png" />
+    </a>
+    <div class="mask">
+      
+              <a href="/classroom/10" class="btn btn-warning">立即加入</a>
+          </div>
+  </div>
+  <h3><a class="link-dark" href="/classroom/10">海贼 X 班（C++高薪班）</a></h3>
+  <div class="metas">共<span>2</span>课</div>
+</div>
+          </div>
+                  <div class="col-md-3 col-xs-6">
+             <div class="class-item">
+  <div class="class-img-wrap">
+    <a class="class-img" href="/classroom/21">
+      <img src="/assets/img/default/lazyload_class.png?version=8.3.30" alt="海贼20-9班（C++高薪班）" class="img-responsive" data-echo="/files/course/2020/04-16/1431357084be836664.jpg" />
+    </a>
+    <div class="mask">
+      
+              <a href="/classroom/21" class="btn btn-warning">立即加入</a>
+          </div>
+  </div>
+  <h3><a class="link-dark" href="/classroom/21">海贼20-9班（C++高薪班）</a></h3>
+  <div class="metas">共<span>4</span>课</div>
+</div>
+          </div>
+                  <div class="col-md-3 col-xs-6">
+             <div class="class-item">
+  <div class="class-img-wrap">
+    <a class="class-img" href="/classroom/20">
+      <img src="/assets/img/default/lazyload_class.png?version=8.3.30" alt="海贼19-8班（C++高薪班）" class="img-responsive" data-echo="/files/course/2019/11-19/1217459c9608188926.jpg" />
+    </a>
+    <div class="mask">
+      
+              <a href="/classroom/20" class="btn btn-warning">立即加入</a>
+          </div>
+  </div>
+  <h3><a class="link-dark" href="/classroom/20">海贼19-8班（C++高薪班）</a></h3>
+  <div class="metas">共<span>10</span>课</div>
+</div>
+          </div>
+                  <div class="col-md-3 col-xs-6">
+             <div class="class-item">
+  <div class="class-img-wrap">
+    <a class="class-img" href="/classroom/19">
+      <img src="/assets/img/default/lazyload_class.png?version=8.3.30" alt="海贼19-7班（C++高薪班）" class="img-responsive" data-echo="/files/course/2019/07-12/1548502565bf545749.png" />
+    </a>
+    <div class="mask">
+      
+              <a href="/classroom/19" class="btn btn-warning">立即加入</a>
+          </div>
+  </div>
+  <h3><a class="link-dark" href="/classroom/19">海贼19-7班（C++高薪班）</a></h3>
+  <div class="metas">共<span>11</span>课</div>
+</div>
+          </div>
+              </div>
+      <div class="section-more-btn">
+        <a href="/classroom/explore" class="btn btn-default btn-lg">
+          更多班级
+ <i class="mrs-o es-icon es-icon-chevronright"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+                                                          
+                            
+        
+                                                  <section class="course-list-section " id="course-list-section">
+
+                    <div class="container">
+    <div class="text-line">
+      <h5><span>海贼编程课</span>
+        <div class="line"></div>
+      </h5>
+      <div class="subtitle">学编程，来海贼，靠谱！</div>
+    </div>
+    <div class="course-filter" id="course-filter">
+      <ul class="nav nav-pills hidden-xs" role="tablist">
+        <li role="presentation" class="active  js-course-filter"
+            data-url="/course/search?orderBy=recommendedSeq" data-type="course"><a
+              href="javascript:;">全部课程</a></li>
+                                            <li role="presentation"
+                  class=" js-course-filter"
+                  data-url="/course/search?categoryId=1&amp;orderBy=recommendedSeq"
+                  data-type="course"><a href="javascript:;">默认分类</a></li>
+                                                <li role="presentation"
+                  class=" js-course-filter"
+                  data-url="/course/search?categoryId=3&amp;orderBy=recommendedSeq"
+                  data-type="course"><a href="javascript:;">基础课程</a></li>
+                                                <li role="presentation"
+                  class=" js-course-filter"
+                  data-url="/course/search?categoryId=6&amp;orderBy=recommendedSeq"
+                  data-type="course"><a href="javascript:;">项目实践课</a></li>
+                                                <li role="presentation"
+                  class=" js-course-filter"
+                  data-url="/course/search?categoryId=4&amp;orderBy=recommendedSeq"
+                  data-type="course"><a href="javascript:;">笔试&amp;面试课程</a></li>
+                                                                  <li class="dropdown nav-hover">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
+                <i class="es-icon es-icon-morehoriz"></i>
+              </a>
+              <ul class="dropdown-menu">
+                                  <li role="presentation"
+                      class=" js-course-filter"
+                      data-url="/course/search?categoryId=16&amp;orderBy=recommendedSeq"
+                      data-type="course"><a href="javascript:;">NOI/NOIP竞赛</a></li>
+                              </ul>
+            </li>
+                        </ul>
+      <div class="btn-group visible-xs">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                aria-expanded="false">全部课程 <span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu">
+          <li role="presentation" class="js-course-filter active "
+              data-url="/course/search?orderBy=recommendedSeq" data-type="course"><a
+                href="javascript:;">全部课程</a></li>
+                                                    <li role="presentation"
+                    class="js-course-filter "
+                    data-url="/course/search?categoryId=1&amp;orderBy=recommendedSeq"
+                    data-type="course"><a href="javascript:;">默认分类</a></li>
+                                                        <li role="presentation"
+                    class="js-course-filter "
+                    data-url="/course/search?categoryId=3&amp;orderBy=recommendedSeq"
+                    data-type="course"><a href="javascript:;">基础课程</a></li>
+                                                        <li role="presentation"
+                    class="js-course-filter "
+                    data-url="/course/search?categoryId=6&amp;orderBy=recommendedSeq"
+                    data-type="course"><a href="javascript:;">项目实践课</a></li>
+                                                        <li role="presentation"
+                    class="js-course-filter "
+                    data-url="/course/search?categoryId=4&amp;orderBy=recommendedSeq"
+                    data-type="course"><a href="javascript:;">笔试&amp;面试课程</a></li>
+                                                                              <li role="presentation" class="js-course-filteractive" data-type="course"><a
+                    href="/course/explore">更多</a></li>
+                              </ul>
+      </div>
+      <div class="course-sort btn-group">
+        <a href="javascript:;"
+           class="btn btn-default js-course-filter"
+           data-url="/course/search?categoryId=0&amp;orderBy=latest"
+           data-type='course'>
+          最新
+        </a>
+        <a href="javascript:;"
+           class="btn btn-default js-course-filter"
+           data-url="/course/search?categoryId=0&amp;orderBy=hotSeq"
+           data-type='course'>
+          最热
+        </a>
+        <a href="javascript:;"
+           class="btn btn-default  active js-course-filter"
+           data-url="/course/search?categoryId=0&amp;orderBy=recommendedSeq"
+           data-type='course'>
+          推荐
+        </a>
+      </div>
+    </div>
+    <div class="course-list">
+      <div class="row">
+                  <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="course-item">
+  <div class="course-img">
+              
+    <a href="/course/209" target="_blank">
+                              <img src="/assets/img/default/lazyload_course.png?version=8.3.30" alt="高薪班课程包" class="img-responsive" data-echo="/files/course/2020/04-28/155750e99ac6578308.png" />
+    </a>
+  </div>
+  <div class="course-info">
+    <div class="title">
+      <a class="link-dark" href="/course/209" target="_blank">
+        高薪班课程包
+      </a>
+    </div>
+    <div class="metas clearfix">
+              <span class="num"><i class="es-icon es-icon-people"></i>193</span>
+            <span class="comment"><i class="es-icon es-icon-textsms"></i>0</span>
+                                  
+<span class="course-price-widget">
+      <span class="
+                              price
+            ">
+          3000元起
+      </span>
+</span>          </div>
+  </div>
+</div>          </div>
+                  <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="course-item">
+  <div class="course-img">
+              
+    <a href="/course/9" target="_blank">
+                              <img src="/assets/img/default/lazyload_course.png?version=8.3.30" alt="计蒜客（海贼宝藏）专区系列课程" class="img-responsive" data-echo="/files/course/2020/04-29/154133d39f26429133.png" />
+    </a>
+  </div>
+  <div class="course-info">
+    <div class="title">
+      <a class="link-dark" href="/course/9" target="_blank">
+        计蒜客（海贼宝藏）专区系列课程
+      </a>
+    </div>
+    <div class="metas clearfix">
+              <span class="num"><i class="es-icon es-icon-people"></i>2</span>
+            <span class="comment"><i class="es-icon es-icon-textsms"></i>0</span>
+                                  
+<span class="course-price-widget">
+      <span class="
+                              price
+            ">
+          15元起
+      </span>
+</span>          </div>
+  </div>
+</div>          </div>
+                  <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="course-item">
+  <div class="course-img">
+              
+    <a href="/course/454" target="_blank">
+                              <img src="/assets/img/default/lazyload_course.png?version=8.3.30" alt="数据结构(海贼现场课)" class="img-responsive" data-echo="/files/course/2020/04-26/200030e3bfd8322044.png" />
+    </a>
+  </div>
+  <div class="course-info">
+    <div class="title">
+      <a class="link-dark" href="/course/454" target="_blank">
+        数据结构(海贼现场课)
+      </a>
+    </div>
+    <div class="metas clearfix">
+              <span class="num"><i class="es-icon es-icon-people"></i>3</span>
+            <span class="comment"><i class="es-icon es-icon-textsms"></i>0</span>
+                                  
+<span class="course-price-widget">
+      <span class="
+                              price
+            ">
+          863元
+      </span>
+</span>          </div>
+  </div>
+</div>          </div>
+                  <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="course-item">
+  <div class="course-img">
+              
+    <a href="/course/358" target="_blank">
+                              <img src="/assets/img/default/lazyload_course.png?version=8.3.30" alt="Linux操作系统(海贼现场课)" class="img-responsive" data-echo="/files/course/2020/04-26/200956473c84288178.png" />
+    </a>
+  </div>
+  <div class="course-info">
+    <div class="title">
+      <a class="link-dark" href="/course/358" target="_blank">
+        Linux操作系统(海贼现场课)
+      </a>
+    </div>
+    <div class="metas clearfix">
+              <span class="num"><i class="es-icon es-icon-people"></i>9</span>
+            <span class="comment"><i class="es-icon es-icon-textsms"></i>0</span>
+                                  
+<span class="course-price-widget">
+      <span class="
+                              price
+            ">
+          569元
+      </span>
+</span>          </div>
+  </div>
+</div>          </div>
+                  <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="course-item">
+  <div class="course-img">
+              
+    <a href="/course/298" target="_blank">
+                              <img src="/assets/img/default/lazyload_course.png?version=8.3.30" alt="C++工程实践" class="img-responsive" data-echo="/files/course/2020/04-28/1035462b3f63770011.png" />
+    </a>
+  </div>
+  <div class="course-info">
+    <div class="title">
+      <a class="link-dark" href="/course/298" target="_blank">
+        C++工程实践
+      </a>
+    </div>
+    <div class="metas clearfix">
+              <span class="num"><i class="es-icon es-icon-people"></i>0</span>
+            <span class="comment"><i class="es-icon es-icon-textsms"></i>0</span>
+                                  
+<span class="course-price-widget">
+      <span class="
+                              price
+            ">
+          869元
+      </span>
+</span>          </div>
+  </div>
+</div>          </div>
+                  <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="course-item">
+  <div class="course-img">
+              
+    <a href="/course/266" target="_blank">
+                              <img src="/assets/img/default/lazyload_course.png?version=8.3.30" alt="编码能力训练课" class="img-responsive" data-echo="/files/course/2020/04-26/202027b6fca6192723.png" />
+    </a>
+  </div>
+  <div class="course-info">
+    <div class="title">
+      <a class="link-dark" href="/course/266" target="_blank">
+        编码能力训练课
+      </a>
+    </div>
+    <div class="metas clearfix">
+              <span class="num"><i class="es-icon es-icon-people"></i>119</span>
+            <span class="comment"><i class="es-icon es-icon-textsms"></i>0</span>
+                                  
+<span class="course-price-widget">
+      <span class="
+                              price
+            ">
+          299元
+      </span>
+</span>          </div>
+  </div>
+</div>          </div>
+                  <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="course-item">
+  <div class="course-img">
+              
+    <a href="/course/467" target="_blank">
+                              <img src="/assets/img/default/lazyload_course.png?version=8.3.30" alt="9.9元特价课" class="img-responsive" data-echo="/files/course/2020/07-12/155856099f2b616151.png" />
+    </a>
+  </div>
+  <div class="course-info">
+    <div class="title">
+      <a class="link-dark" href="/course/467" target="_blank">
+        9.9元特价课
+      </a>
+    </div>
+    <div class="metas clearfix">
+              <span class="num"><i class="es-icon es-icon-people"></i>0</span>
+            <span class="comment"><i class="es-icon es-icon-textsms"></i>0</span>
+                                  
+<span class="course-price-widget">
+      <span class="
+                              price
+            ">
+          9.9元起
+      </span>
+</span>          </div>
+  </div>
+</div>          </div>
+                  <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="course-item">
+  <div class="course-img">
+              
+    <a href="/course/453" target="_blank">
+                              <img src="/assets/img/default/lazyload_course.png?version=8.3.30" alt="前端0基础入门" class="img-responsive" data-echo="/files/course/2020/05-21/121454e95cb9363239.png" />
+    </a>
+  </div>
+  <div class="course-info">
+    <div class="title">
+      <a class="link-dark" href="/course/453" target="_blank">
+        前端0基础入门
+      </a>
+    </div>
+    <div class="metas clearfix">
+              <span class="num"><i class="es-icon es-icon-people"></i>32</span>
+            <span class="comment"><i class="es-icon es-icon-textsms"></i>0</span>
+              <span class="comment"><i class="es-icon es-icon-playcircleoutline"></i>试看</span>
+                                  
+<span class="course-price-widget">
+      <span class="
+                              price
+            ">
+          3000元
+      </span>
+</span>          </div>
+  </div>
+</div>          </div>
+                  <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="course-item">
+  <div class="course-img">
+              
+    <a href="/course/446" target="_blank">
+                              <img src="/assets/img/default/lazyload_course.png?version=8.3.30" alt="C语言编码能力提升" class="img-responsive" data-echo="/files/course/2020/04-29/143932467bfb552209.png" />
+    </a>
+  </div>
+  <div class="course-info">
+    <div class="title">
+      <a class="link-dark" href="/course/446" target="_blank">
+        C语言编码能力提升
+      </a>
+    </div>
+    <div class="metas clearfix">
+              <span class="num"><i class="es-icon es-icon-people"></i>10</span>
+            <span class="comment"><i class="es-icon es-icon-textsms"></i>0</span>
+                                  
+<span class="course-price-widget">
+      <span class="
+                              price
+            ">
+          1024元
+      </span>
+</span>          </div>
+  </div>
+</div>          </div>
+                  <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="course-item">
+  <div class="course-img">
+              
+    <a href="/course/413" target="_blank">
+                              <img src="/assets/img/default/lazyload_course.png?version=8.3.30" alt="海贼高薪班课程大纲" class="img-responsive" data-echo="/files/course/2020/04-26/205312862a6a433511.png" />
+    </a>
+  </div>
+  <div class="course-info">
+    <div class="title">
+      <a class="link-dark" href="/course/413" target="_blank">
+        海贼高薪班课程大纲
+      </a>
+    </div>
+    <div class="metas clearfix">
+              <span class="num"><i class="es-icon es-icon-people"></i>0</span>
+            <span class="comment"><i class="es-icon es-icon-textsms"></i>0</span>
+                                  
+<span class="course-price-widget">
+      <span class="
+                              price
+            ">
+          9999元
+      </span>
+</span>          </div>
+  </div>
+</div>          </div>
+                  <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="course-item">
+  <div class="course-img">
+              
+    <a href="/course/423" target="_blank">
+                              <img src="/assets/img/default/lazyload_course.png?version=8.3.30" alt="高薪班面试题整理" class="img-responsive" data-echo="/files/course/2020/04-28/10251173c14a034183.png" />
+    </a>
+  </div>
+  <div class="course-info">
+    <div class="title">
+      <a class="link-dark" href="/course/423" target="_blank">
+        高薪班面试题整理
+      </a>
+    </div>
+    <div class="metas clearfix">
+              <span class="num"><i class="es-icon es-icon-people"></i>395</span>
+            <span class="comment"><i class="es-icon es-icon-textsms"></i>0</span>
+                                  
+<span class="course-price-widget">
+      <span class="
+                              price
+            ">
+          18432元
+      </span>
+</span>          </div>
+  </div>
+</div>          </div>
+                  <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="course-item">
+  <div class="course-img">
+              
+    <a href="/course/450" target="_blank">
+                              <img src="/assets/img/default/lazyload_course.png?version=8.3.30" alt="公益直播课" class="img-responsive" data-echo="/files/course/2020/06-28/174742ec5532491242.png" />
+    </a>
+  </div>
+  <div class="course-info">
+    <div class="title">
+      <a class="link-dark" href="/course/450" target="_blank">
+        公益直播课
+      </a>
+    </div>
+    <div class="metas clearfix">
+              <span class="num"><i class="es-icon es-icon-people"></i>215</span>
+            <span class="comment"><i class="es-icon es-icon-textsms"></i>15</span>
+              <span class="comment"><i class="es-icon es-icon-playcircleoutline"></i>试看</span>
+                                  
+<span class="course-price-widget">
+      <span class="
+                              price
+            ">
+          1元起
+      </span>
+</span>          </div>
+  </div>
+</div>          </div>
+              </div>
+    </div>
+    <div class="section-more-btn">
+      <a href="/course/explore" class="btn btn-default btn-lg">
+        更多课程 <i class="mrs-o es-icon es-icon-chevronright"></i>
+      </a>
+    </div>
+  </div>
+</section>
+                                        
+                            
+        
+                                                                                                                              
+                            
+        
+                                                                      <!-- 特性 --> 
+                                                            
+                            
+        
+                                                                      <section class="recommend-teacher ">
+    <div class="container">
+      <div class="text-line">
+        <h5><span>推荐教师</span><div class="line"></div></h5>
+        <div class="subtitle">名师汇集，保证教学质量与学习效果。</div>
+      </div>
+      <div class="row">
+                                  <div class="col-md-3 col-xs-6">
+            <div class="teacher-item">
+  <div class="teacher-top">
+    <a class="teacher-img" href="/user/4">
+      <img class="avatar-lg" src="/files/user/2017/05-07/1615495c3a9c842299.jpg" alt="">
+    </a>
+    <h3 class="title">
+      <a class="link-dark" href="/user/4">胡船长</a>
+    </h3>
+    <div class="position">
+              高级算法研发工程师
+          </div>
+  </div>
+  <div class="teacher-bottom">
+    <div class="about">
+              曾就职于百度、异构智能等公司，任高级算法研发工程师。百度线上...
+          </div>
+    <div class="metas">
+              <a class="btn btn-primary btn-sm follow-btn" href="javascript:;" data-url="/user/4/follow"  data-loggedin="0">关注</a>
+        <a class="btn btn-default btn-sm unfollow-btn" href="javascript:;" data-url="/user/4/unfollow"  style="display:none;" >已关注</a>
+                  </div>
+  </div>
+</div>
+          </div>
+                                  <div class="col-md-3 col-xs-6">
+            <div class="teacher-item">
+  <div class="teacher-top">
+    <a class="teacher-img" href="/user/2">
+      <img class="avatar-lg" src="/files/user/2017/05-07/162340c7f5fd578824.jpg" alt="">
+    </a>
+    <h3 class="title">
+      <a class="link-dark" href="/user/2">宿船长</a>
+    </h3>
+    <div class="position">
+              云计算解决方案工程师
+          </div>
+  </div>
+  <div class="teacher-bottom">
+    <div class="about">
+              拥有3篇发明专利，具有丰富的数据中心规划与建设经验，精通 L...
+          </div>
+    <div class="metas">
+              <a class="btn btn-primary btn-sm follow-btn" href="javascript:;" data-url="/user/2/follow"  data-loggedin="0">关注</a>
+        <a class="btn btn-default btn-sm unfollow-btn" href="javascript:;" data-url="/user/2/unfollow"  style="display:none;" >已关注</a>
+                  </div>
+  </div>
+</div>
+          </div>
+                                  <div class="col-md-3 col-xs-6">
+            <div class="teacher-item">
+  <div class="teacher-top">
+    <a class="teacher-img" href="/user/1182">
+      <img class="avatar-lg" src="/files/user/2019/04-09/105330ab36c5600094.jpg" alt="">
+    </a>
+    <h3 class="title">
+      <a class="link-dark" href="/user/1182">chenyu</a>
+    </h3>
+    <div class="position">
+              ACM 竞赛教练员
+          </div>
+  </div>
+  <div class="teacher-bottom">
+    <div class="about">
+              具有超过10年的 ACM 竞赛教练经验，采用【讲、练、带】的...
+          </div>
+    <div class="metas">
+              <a class="btn btn-primary btn-sm follow-btn" href="javascript:;" data-url="/user/1182/follow"  data-loggedin="0">关注</a>
+        <a class="btn btn-default btn-sm unfollow-btn" href="javascript:;" data-url="/user/1182/unfollow"  style="display:none;" >已关注</a>
+                  </div>
+  </div>
+</div>
+          </div>
+                                  <div class="col-md-3 col-xs-6">
+            <div class="teacher-item">
+  <div class="teacher-top">
+    <a class="teacher-img" href="/user/1447">
+      <img class="avatar-lg" src="/files/user/2019/07-09/19560772ff19272104.jpg" alt="">
+    </a>
+    <h3 class="title">
+      <a class="link-dark" href="/user/1447">韩飞</a>
+    </h3>
+    <div class="position">
+              暂无头衔
+          </div>
+  </div>
+  <div class="teacher-bottom">
+    <div class="about">
+              喜欢探索世界的程序员，感情丰富，性格洒脱。爱好 Classi...
+          </div>
+    <div class="metas">
+              <a class="btn btn-primary btn-sm follow-btn" href="javascript:;" data-url="/user/1447/follow"  data-loggedin="0">关注</a>
+        <a class="btn btn-default btn-sm unfollow-btn" href="javascript:;" data-url="/user/1447/unfollow"  style="display:none;" >已关注</a>
+                  </div>
+  </div>
+</div>
+          </div>
+              </div>
+      <div class="section-more-btn">
+        <a href="/teacher" class="btn btn-default btn-lg">
+          更多教师 <i class="mrs-o es-icon es-icon-chevronright"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+                                                          
+                            
+        
+                                                          
+                            
+        
+                                  
+      
+                                                                              <div class="es-footer-link">
+  <div class="container">
+    <div class="row">
+      
+    </div>
+  </div>
+</div>    
+<footer class="es-footer">
+  <div class="copyright">
+    <div class="container">
+        Powered by <a href="http://www.edusoho.com/" target="_blank">EduSoho v8.3.30</a>
+  ©2014-2020 <a class="mlm" href="http://www.howzhi.com/" target="_blank">好知网</a>
+      <script type="text/javascript" src="http://tajs.qq.com/stats?sId=62780509" charset="UTF-8"></script>
+
+
+              <!-- Matomo -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.qiqiuyun.net/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '171']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+      
+      <a class="mlm" href="/archive/course">课程存档</a>
+      <div class="mts">
+                  课程内容版权均归 <a href="/">
+  哈尔滨海贼科技有限责任公司
+</a> 所有
+
+                          <a class="mlm" href="http://beian.miit.gov.cn" target="_blank">
+            黑 ICP 备17003169-1号
+          </a>
+              </div>
+    </div>
+  </div>
+</footer>
+    
+        
+      </div>
+
+            
+
+
+<!-- 侧边栏快捷操作 -->
+<div class="es-bar hidden-xs">
+
+  <!-- 左侧列表 -->
+  <div class="es-bar-menu">
+  <ul class="bar-menu-top">
+          <li data-id="#bar-user-center" class="bar-user">
+    <a href="javascript:;" data-url="/esbar/my/study_center">学<br>习<br>中<br>心</a>
+  </li>
+        <li data-id="#bar-homework" data-toggle="tooltip" data-placement="left" title="我的考试/作业" data-trigger="hover" data-container=".es-bar">
+  <a href="javascript:;" data-url="/esbar/my/practice/finished">
+    <i class="es-icon es-icon-edit"></i>
+  </a>
+</li>    <li data-id="#bar-course-list" data-placement="left" data-toggle="tooltip" title="我的课程/班级" data-trigger="hover" data-container=".es-bar">
+  <a data-url="/esbar/my/course" href="javascript:;">
+    <i class="es-icon es-icon-book">
+    </i>
+  </a>
+</li>      <li data-id="#bar-message" data-toggle="tooltip" data-placement="left" title="通知">
+    <a href="javascript:;">
+      <i class="es-icon es-icon-notifications"></i>
+    </a>
+  </li>
+  </ul>
+  <ul class="bar-menu-sns">
+                  <li class="popover-btn bar-phone-btn" data-container=".bar-phone-btn" data-title="电话客服" data-content-element="#bar-phone-content">
+    <a><i class="es-icon es-icon-phone"></i></a>
+  </li>
+        <li class="popover-btn bar-weixin-btn" data-container=".bar-weixin-btn" data-content-element="#bar-weixin-content">
+    <a><i class="es-icon es-icon-weixin"></i></a>
+  </li>
+    
+          <li data-toggle="tooltip" data-placement="left" title="手机端" data-trigger="hover" data-container=".es-bar">
+        <a href="/mobile/" target="_blank"><i class="es-icon es-icon-phone1"></i></a>
+      </li>
+        <li class="go-top" style="margin:-10px auto 0 auto;" data-toggle="tooltip" data-placement="left" title="回到顶端" data-trigger="hover" data-container=".es-bar">
+      <a href="javascript:;">
+        <i class="es-icon es-icon-keyboardarrowup" style="margin-bottom:-8px"></i>
+        <span class="text-sm">TOP</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+  <!-- 列表内容 -->
+  
+    <div class="bar-popover-content" style="display:none;">
+    <div id="bar-qq-content">
+          <hr>
+        </div>
+
+    <div id="bar-phone-content">
+              <p class="mtm"><i class="es-icon es-icon-accesstime mrm"></i>工作时间：9:00 - 20:00</p>
+                    <p class="mtm"><i class="es-icon es-icon-phone mrm"></i>24小时客服:0451-81320875</p>
+              <p class="mtm"><i class="es-icon es-icon-phone mrm"></i>1.胡船长:13030069293</p>
+              <p class="mtm"><i class="es-icon es-icon-phone mrm"></i>2.宿船长:13030066350</p>
+              <p class="mtm"><i class="es-icon es-icon-phone mrm"></i>3.公司座机:0451-86236731</p>
+                    <p class="mtm"><i class="es-icon es-icon-mail mrm"></i>邮箱： <a class="link-dark" href="mailto:hug@haizeix.com">hug@haizeix.com</a></p>
+          </div>
+
+          <div id="bar-weixin-content">
+        <img width="110" class="img-responsive" src="/files/system/2018/03-22/10094599fdd9003807.jpg?time=1521690502?version=8.3.30" alt="">
+      </div>
+      </div>
+</div>      
+    
+        
+                
+  <div id="login-modal" class="modal" data-url="/login/ajax"></div>
+  <div id="modal" class="modal"></div>
+  <div id="attachment-modal" class="modal"></div>
+
+    
+
+  
+
+
+  <script>
+  if (typeof app === 'undefined') {
+      var app = {};
+  }
+  app.version = '8.3.30';
+  app.httpHost = 'https://www.haizeix.com';
+  app.basePath = 'https://www.haizeix.com';
+  app.theme = 'jianmo';
+
+    
+  var CLOUD_FILE_SERVER = ""; 
+
+  app.config = {"api":{"weibo":{"key":""},"qq":{"key":""},"douban":{"key":""},"renren":{"key":""}},"loading_img_path":"\/assets\/img\/default\/loading.gif?version=8.3.30"};
+
+  app.arguments = {};
+      
+  app.scripts = null;
+
+  app.fileSingleSizeLimit = 10;
+  app.uploadUrl = '/file/upload';
+  app.imgCropUrl = '/file/img/crop';
+  app.lessonCopyEnabled = '0';
+  app.cloudSdkBaseUri = '';
+  app.cloudDisableLogReport = 0;
+  app.cloudPlayerSdkUrl = '//service-cdn.qiqiuyun.net/js-sdk/sdk-v1.js?15949000';
+  app.cloudPlayServer = '';
+  app.cloudVideoPlayerSdkUrl = '//service-cdn.qiqiuyun.net/js-sdk/video-player/sdk-v1.js?15949000';
+  app.cloudOldUploaderSdkUrl = '//service-cdn.qiqiuyun.net/js-sdk/uploader/sdk-v1.js?15949000';
+  app.cloudOldDocumentSdkUrl = '//service-cdn.qiqiuyun.net/js-sdk/document-player/v7/viewer.html?15949000';
+  app.lang = 'zh_CN';
+</script>
+
+<script src="/bundles/translations/translator.min.js?version=8.3.30"></script>
+
+  <script src="/bundles/translations/zh_CN.js?version=8.3.30"></script>
+      <script src="/static-dist/libs/base.js?version=8.3.30"></script>
+        <script src="/static-dist/app/js/common.js?version=8.3.30"></script>
+        <script src="/static-dist/app/js/main.js?version=8.3.30"></script>
+        <script src="/static-dist/jianmotheme/js/main.js?version=8.3.30"></script>
+        <script src="/static-dist/app/js/index/index.js?version=8.3.30"></script>
+        <script src="/static-dist/app/js/default/header/index.js?version=8.3.30"></script>
+        <script src="/static-dist/libs/perfect-scrollbar.js?version=8.3.30"></script>
+        <script src="/static-dist/app/js/es-bar/index.js?version=8.3.30"></script>
+  
+<script type="text/javascript">
+  window.seajsBoot && window.seajsBoot();
+</script>
+
+
+</body>
+</html>
