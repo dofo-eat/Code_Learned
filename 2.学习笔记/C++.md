@@ -2,6 +2,8 @@
 
 理解程序的运行流程
 
+![图片](https://static.dingtalk.com/media/lALPGo_k8XshscHNBHLNB1I_1874_1138.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228145301367%22%2C%22msgId%22%3A%224676817925879%22%7D&bizType=im&open_id=366609415)]()
+
 ## 一.从C到C++
 
 ### 1.包含
