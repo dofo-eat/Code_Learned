@@ -309,5 +309,56 @@ void deleteNode(struct ListNode* node) {
 }
 ~~~
 
+###  142.环形链表II
 
+给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。
+
+为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。
+
+说明：不允许修改给定的链表。
+
+~~~ c
+struct ListNode *detectCycle(struct ListNode *head) {
+    struct ListNode *fast_p=head,*p=head;
+    while(fast_p!=0&&fast_p->next!=0){
+        fast_p=fast_p->next->next;
+        p=p->next;
+        if(fast_p==p) break;
+    }
+    if(fast_p==0||fast_p->next==0) return 0;
+    else{
+        while(p!=head){
+            p=p->next;
+            head=head->next;
+        }
+        return head;
+    }
+}
+~~~
+
+### 287寻找重复数
+
+给定一个包含 n + 1 个整数的数组 nums，其数字都在 1 到 n 之间（包括 1 和 n），可知至少存在一个重复的整数。假设只有一个重复的整数，找出这个重复的数。
+
+示例 1:
+
+输入: [1,3,4,2,2]
+输出: 2
+
+~~~ c
+int findDuplicate(int* nums, int numsSize){
+     int p = nums[0], q = nums[0];
+     do {
+         p = nums[p];
+         q = nums[nums[q]];//快慢指针走两部
+     }while(p != q) ;
+     q = nums[0];
+     while(p != q) {
+         p = nums[p];
+         q = nums[q];
+     }//p q 差出了一个环的距离:
+     return p;
+ }
+//时间12m
+~~~
 
