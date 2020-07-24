@@ -2,37 +2,46 @@
 	> File Name: 19.cpp
 	> Author: dofo-eat
 	> Mail:2354787023@qq.com 
-	> Created Time: 2020年07月23日 星期四 17时35分07秒
+	> Created Time: 2020年07月24日 星期五 09时41分52秒
  ************************************************************************/
-
-#include<iostream>
-#include<queue>
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <algorithm>
+#include <vector>
+#include <map>
+#include <cmath>
 using namespace std;
-
-long long n, a[400005], b[400005], ans[400005];
+#define MAX_N 300000
+int arr[MAX_N + 5];
+int q[MAX_N + 5], head = 0, tail = 0;
 
 int main() {
-    priority_queue<int> que;
-    cin >> n;
-    for(int i = 0; i < n; i++) {
-        cin >> a[i];
-        cin >> b[i];
-    }
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < n; j++) {
-            int sum = a[i] + b[j];
-            if(sum < que.top()) {
-                que.pop();
-                que.push(sum);
-            }
+    int n, k;
+    cin >> n >> k;
+    for (int i = 0; i < n; i++) cin >> arr[i];
+    head = tail = 0;
+    for (int i = 0; i < n; i++) {
+        while (tail - head && arr[q[tail - 1]] >= arr[i]) tail--;
+        q[tail++] = i;
+        if (i - q[head] >= k) head++;
+        if (i + 1 >= k) {
+            i + 1 == k || cout << " ";
+            cout << arr[q[head]];
         }
     }
-    for(int i = 0; i < n; i++) {
-        ans[i] = que.top();
-        que.pop();
+    cout << endl;
+    head = tail = 0;
+    for (int i = 0; i < n; i++) {
+        while (tail - head && arr[q[tail - 1]] <= arr[i]) tail--;
+        q[tail++] = i;
+        if (i - q[head] >= k) head++;
+        if (i + 1 >= k) {
+            i + 1 == k || cout << " ";
+            cout << arr[q[head]];
+        }
     }
-    for(int i = n - 1; i >= 0; i--) {
-        cout << ans[i] << endl;   
-    }
+    cout << endl;
     return 0;
 }
