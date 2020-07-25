@@ -6,32 +6,38 @@
  ************************************************************************/
 
 #include<iostream>
+#include<cstdlib>
 #include<stack>
 #include<cstring>
 #include<string>
 using namespace std;
 
-bool isvalid(string s) {
-    stack<char> mtstack;
-    for(int i = 0; i < strlen(s); i++) {
-        if(isleft(s[i])) {
-            mystack.push(s[i]);
-        }else{
-            if(mystack.empty() || (mystack.top() != s[i] - 1 && mystack.top() != s[i] - 2)) {
-                return false;
-            }
-            mystack.pop();
+bool isValid(char * s){
+    int len = strlen(s), top = -1, flag = 1;
+    char *stack = (char *)malloc(sizeof(char) *len);
+    while(s[0]) {
+        switch(s[0]) {
+            case '(':stack[++top] = s[0];break;
+            case '[':stack[++top] = s[0];break;
+            case '{':stack[++top] = s[0];break;
+            case')':flag = (top != -1 && stack[top--] == '(');break;
+            case']':flag = (top != -1 && stack[top--] == '[');break;
+            case'}':flag = (top != -1 && stack[top--] == '{');break;
         }
+        if(flag == 0) break;
+        s++;
     }
-    return mystack.empty();
-}
-
-bool isleft(char c) {
-    return (c == '(' || c == '[' || c == '{');
+    free(stack);
+    if (flag &&top == -1) {
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
+    }
 }
 
 int main () {
     char str[500];
     cin >> str;
+    isValid(str);
     return 0;
 }

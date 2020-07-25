@@ -4,6 +4,9 @@
 
 ![图片](https://static.dingtalk.com/media/lALPGo_k8XshscHNBHLNB1I_1874_1138.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228145301367%22%2C%22msgId%22%3A%224676817925879%22%7D&bizType=im&open_id=366609415)]()
 
+* 以及c++是把运行时候的bug改为程序编译时候的bug
+* 对于问题在编译成功的时候面对外界更改的因素， 按照严格的规范来， 对于设定的类型只要不合理的public等类的更改， 会报漏出来
+
 ## 一.从C到C++
 
 ### 1.包含
@@ -176,5 +179,172 @@ int main() {
     输出
     ​ 输出一个整数，表示重新排列后的队伍中获奖赏最多的大臣所获得的金币数。
 
+    ​
 
-![]()
+
+```c
+nclude <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <queue>
+#include <stack>
+#include <algorithm>
+#include <string>
+#include <map>
+#include <set>
+#include <vector>
+using namespace std;
+
+#define MAX_N 1000
+int a[MAX_N + 5], b[MAX_N + 5], ind[MAX_N + 5];
+
+bool cmp(int i, int j) {
+    return a[i] * b[i] < a[j] * b[j];
+}
+
+struct BigInt : vector<int> {
+    BigInt() {}
+    BigInt(int x) {
+        push_back(x);
+        proccess_digit();
+    }
+    BigInt(vector<int> &v) : vector<int>(v) { proccess_digit(); }
+    
+    BigInt operator/(int x) {
+        int y = 0;
+        vector<int> ret(size());
+        for (int i = size() - 1; i >= 0; i--) {
+            y = y * 10 + at(i);
+            ret[i] = y / x;
+            y %= x;
+        }
+        return ret;
+    }
+    void operator*=(int x) {
+        for (int i = 0; i < size(); i++) at(i) *= x;
+        proccess_digit();
+        return ;
+    }
+    bool operator>(const BigInt &a) {
+        if (size() - a.size()) return size() > a.size();
+        for (int i = size() - 1; i >= 0; i--) {
+            if (at(i) - a[i]) return at(i) > a[i];
+        }
+        return false;
+    }
+    void proccess_digit() {
+        for (int i = 0; i < size(); i++) {
+            if (at(i) < 10) continue;
+            if (i + 1 == size()) push_back(0);
+            at(i + 1) += at(i) / 10;
+            at(i) %= 10;
+        }
+        while (size() > 1 && at(size() - 1) == 0) pop_back();
+        return ;
+    }
+}; 
+
+ostream &operator<<(ostream &out, const BigInt &v) {
+    for (int i = v.size() - 1; i >= 0; --i) {
+        out << v[i];
+    }
+    return out;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    for (int i = 0; i <= n; i++) {
+        cin >> a[i] >> b[i];
+        ind[i] = i;
+    }
+    sort(ind + 1, ind + n + 1, cmp);
+    BigInt p = a[ind[0]], ans = 0;
+    for (int i = 1; i <= n; i++) {
+        BigInt temp = p / b[ind[i]];
+        if (temp > ans) ans = temp;
+        p *= a[ind[i]];
+    }
+    cout << ans << endl;
+    return 0;
+}
+```
+## 二.类和对象
+
+### 1.类型和变量
+
+* 类型等于类型数据+类型操作
+
+| 类    | 对象   |
+| ---- | ---- |
+| 狗    | 黑子   |
+| 人    | 肖战   |
+
+### 2.属性和方法
+
+~~~ c++
+class People {
+    string name;
+    Day birthday;
+    double height;
+    double weight;
+    void say(string word);
+    void run(Location &loc);
+}//偏向于声明
+~~~
+
+~~~ c++
+#include<iostream>
+#include<algorithm>
+using namespace std;
+//默认private
+class People {
+    friend int main();
+    int x, y;
+    //声明
+public:
+    void set(int x);
+    void say();
+};
+
+//默认public
+struct People2 {
+    int x, y;
+};
+
+void People::set(int x) {
+    cout << "set function:" << this << endl;
+    this->x = x;
+    return ;
+}
+
+void People::say() {
+    cout << x << " " << y << endl;
+    return;
+}
+
+int main() {
+    People a;
+    cout << "a function ；" << &a << endl;
+    People2 b;
+    a.y = 18432;
+    a.set(3);
+    b.x = 4;
+    a.say();
+    cout << b.x << endl;
+    cout << a.y << endl;
+    return 0;
+}
+
+~~~
+
+
+
+### 3.访问权限
+
+| public    | 公共访问权限         |
+| --------- | -------------- |
+| private   | 私有访问权限         |
+| protected | 手保护的访问权相（）     |
+| friendly  | 有元方法(一般所都是类外的) |
+

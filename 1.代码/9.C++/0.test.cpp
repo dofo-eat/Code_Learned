@@ -26,3 +26,12 @@ int main() {
     }
     return 0;
 }
+
+class People {
+    string name;
+    Day birthday;
+    double height;
+    double weight;
+    void say(string word);
+    void run(Location &loc);
+}
