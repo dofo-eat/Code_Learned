@@ -348,3 +348,373 @@ int main() {
 | protected | 手保护的访问权相（）     |
 | friendly  | 有元方法(一般所都是类外的) |
 
+## 3.构造函数和析构函数
+
+| 构造/析构函数                 | 使用方式 |
+| ----------------------- | ---- |
+| 默认构造函数                  |      |
+| People(string name)     |      |
+| People(const People &a） |      |
+| ~peopel                 |      |
+
+~~~ c++
+ ************************************************************************/
+
+#include<iostream>
+using namespace std;
+
+class People {
+public:
+  //通常都是自动调用的
+    People() {
+        cout << "default constructor" << endl;
+    }
+    ~People() {
+        cout << "destructor" << endl;
+    }
+};
+
+int main() {
+    People a;
+        cout << "hello world" << endl;
+    return 0;
+}
+//默认构造函数
+~~~
+
+~~~ c++
+
+//有参数构造
+
+class People {
+public:
+    People() {}//为了不a报错添加的由参构造函数
+
+    People(string name) {
+        cout << "param constructor" << endl;
+        this->name = name;
+    }
+    ~People() {
+        cout << "destructor" << endl;
+    }
+    string name;
+};
+
+int main() {
+    People b("hahahah");
+    People a = string("hai");
+    cout << a.name << endl;
+    cout << "hello world" << endl;
+}
+//有参构造
+//拥有一个参数的又可以叫转换类型参数  
+超级特殊
+
+int add(People a, People b) {
+    return a.x + b.x;
+}
+
+int main() {
+    cout << add(4, 5) << endl;
+}//可以运算
+在参数传递过程中进行自动的类型转换
+~~~
+
+~~~ c++
+class People {
+public:
+    People() {}//为了不a报错添加的由参构造函数
+
+    People(string name) {
+        cout << "param constructor" << endl;
+        this->name = name;
+    }
+    People(int x) {
+        cout << "int param constructor" << endl;
+        this->x = x ;
+    }
+    ~People() {
+        cout << "destructor" << endl;
+    }
+    string name;
+    int x;
+};
+
+void incr(int &a) {
+    a += 1;
+    return ;
+}
+
+int main() {
+    int n = 7;
+    incr(n);
+    cout << n << endl;
+    People b("hahahah");
+    People a = string("hai");
+    People c(543);
+    People d = 678;
+    cout << a.name << endl;
+    cout << b.name << endl;
+    cout << c.x << endl;
+    cout << d.x << endl;
+    //可以进行简单的转
+    c = 987;
+    cout << c.x << endl;
+    cout << "hello world" << endl;
+}
+//引用inrc
+~~~
+
+~~~ c++
+class People {
+public:
+    People() {}//为了不a报错添加的由参构造函数
+
+    People(string name) {
+        cout << "param constructor" << endl;
+        this->name = name;
+    }
+    People(int x) {
+        cout << "int param constructor" << endl;
+        this->x = x ;
+    }
+    //拷贝构造函数
+    People (const People &a) {
+        cout << "copy constructor" << endl;
+        this->name = a.name;
+        this->x = a.x;
+    }
+
+    ~People() {
+        cout << "destructor" << endl;
+    }
+    string name;
+    int x;
+};
+
+void incr(int &a) {
+    a += 1;
+    return ;
+}
+
+int main() {
+    int n = 7;
+    incr(n);
+    cout << n << endl;
+    People a = string("hai");
+    People e = a;
+    cout << e.name << endl;
+    cout << e.x << endl;
+}
+//拷贝构造函数
+为什么拷贝构造函数一定会传引用
+因为会无限递归是展开
+如下图
+~~~
+
+![图片](https://static.dingtalk.com/media/lALPDhJztliAp0fNAirNArk_697_554.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%22366609415%3A366609415%22%2C%22msgId%22%3A%224712193640609%22%7D&bizType=im&open_id=366609415)
+
+
+
+* 总结
+
+* 只有转换函数没有作用在对向定义阶段
+
+* 为什么要加？ V
+
+  ```c
+  //People() = default;
+  为了把隐藏的规则显示出来
+
+  把所有的逻辑显示在代码中
+  //People() = delete;
+  意思是不支持默认构造函数
+  为了方便代码维护
+
+
+  ```
+
+## 4.类属性方法
+
+### 4.1 访问权限
+
+* 所有在类中实现的方法都叫作对象方法（都是跟着对象走的） 
+* 成员方法
+  * 它可以访问一个特殊的成员变量叫做this指针
+  * 方便外部调用
+* 成员属性
+  * 成员属性
+  * 方便内部调用
+  * 表述某一个对象的具体内容
+
+### 4.2 类属性与方法
+
+* 类属性局为1 ，对象共享
+
+* static定义
+
+* 单反是调构造函数的总数加1， 析构函数-1；
+
+  * 统计系统中对象的格式有一个潜在的小问题由一个特殊的转换构造函数的问题， 不存的话就没有问题
+
+  * 这种机制只在定义的时候才会调用
+
+  * ~~~ c++
+
+    #include <iostream>
+    #include <cstdio>
+    #include <cstdlib>
+    #include <queue>
+    #include <stack>
+    #include <algorithm>
+    #include <string>
+    #include <map>
+    #include <set>
+    #include <vector>
+    using namespace std;
+
+    class Point {
+    public :
+        Point() {
+            cout << "constructor : " << this << endl;
+            Point::total_cnt += 1;
+        }
+        Point(const Point &a) : Point() {
+            cout << "copy constructor : " << this << endl;
+            this->x = a.x;
+            this->y = a.y;
+        }
+        Point(double z) : Point() {
+            cout << "convert constructor : " << this << endl;
+            this->x = 99, this->y = 99;
+        }
+        Point(int x, int y) : Point() {
+            cout << "param constructor : " << this << endl;
+            this->x = x;
+            this->y = y;
+        }
+
+        void operator=(const Point &a) {
+            cout << "operator= : " << this << endl;
+            this->x = a.x, this->y = a.y;
+            return ;
+        }
+        static int T() { return Point::total_cnt; }
+
+        ~Point() {
+            cout << "destructor : " << this << endl;
+            Point::total_cnt -= 1;
+        }
+        
+    private:
+        int x, y;
+        static int total_cnt;
+    };
+
+    int Point::total_cnt = 0;
+
+    void test() {
+        Point a;
+        cout << Point::T() << endl;
+        return ;
+    }
+
+    int main() {
+        Point a;
+        cout << a.T() << endl;
+        test();
+        Point b;
+        cout << b.T() << endl;
+        Point c(3, 4);
+        cout << c.T() << endl;
+        Point d(3.4);
+        cout << d.T() << endl;
+        c = 5.6;
+        cout << c.T() << endl;
+        cout << &a << endl;
+        cout << &b << endl;
+        cout << &c << endl;
+        cout << &d << endl;
+        return 0;
+    }
+    //先出现的后析构
+
+    c = 5.6逻辑
+    先调用赋值运算符 声称一个匿名对象， c的引用就绑定在匿名对象上了， 之后按照（转换函数）正常逻辑调用， 最后在释放你匿名对象
+    ~~~
+
+  * ​
+
+  ![图片](https://static.dingtalk.com/media/lALPDg7mN7QPeU3NAafNAyA_800_423.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%22366609415%3A366609415%22%2C%22msgId%22%3A%224723136161034%22%7D&bizType=im&open_id=366609415)
+
+### 4.3const方法
+
+* 不改变对象的属性值
+* 作用是杯const类型嗯的对象进行调用 const只能调用const
+
+### 5.总结
+
+* //先出现的后析构
+  * 因为后来构建的可能依赖于先构建 的
+  * 否则的话可能会出现bug
+
+### 6.对象和引用
+
+* 都只作用存储空间
+
+### 7.返回值优化
+
+#### 7.1对象的初始化
+
+SomeClass
+
+* 开辟对象数据区
+* 匹配构造函数
+* 完成构造
+
+#### 7.2返回值优化
+
+![图片](https://static.dingtalk.com/media/lALPDh0cMke_KcjNASzNBCU_1061_300.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%22366609415%3A366609415%22%2C%22msgId%22%3A%224722273252459%22%7D&bizType=im&open_id=366609415)
+
+~~~ c++
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <queue>
+#include <stack>
+#include <algorithm>
+#include <string>
+#include <map>
+#include <set>
+#include <vector>
+using namespace std;
+
+class People {
+public :
+    People(string name) {
+        cout << "param constructor" << endl;
+        this->name = name;
+    }
+    People(const People &a) {
+        cout << "copy constructor" << endl;
+        this->name = a.name;
+    }
+
+private:
+    string name;
+};
+
+People func() {
+    People temp_a("hug");
+    return temp_a;
+}
+
+int main() {
+    People a = func();
+    return 0;
+}
+
+~~~
+
+
+
