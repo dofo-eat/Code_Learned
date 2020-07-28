@@ -348,7 +348,7 @@ int main() {
 | protected | 手保护的访问权相（）     |
 | friendly  | 有元方法(一般所都是类外的) |
 
-## 3.构造函数和析构函数
+## 三.构造函数和析构函数
 
 | 构造/析构函数                 | 使用方式 |
 | ----------------------- | ---- |
@@ -517,22 +517,8 @@ int main() {
 
 
 * 总结
+* 只有转换函数没有作用在对向定义阶
 
-* 只有转换函数没有作用在对向定义阶段
-
-* 为什么要加？ V
-
-  ```c
-  //People() = default;
-  为了把隐藏的规则显示出来
-
-  把所有的逻辑显示在代码中
-  //People() = delete;
-  意思是不支持默认构造函数
-  为了方便代码维护
-
-
-  ```
 
 ## 4.类属性方法
 
@@ -640,10 +626,10 @@ int main() {
     //先出现的后析构
 
     c = 5.6逻辑
-    先调用赋值运算符 声称一个匿名对象， c的引用就绑定在匿名对象上了， 之后按照（转换函数）正常逻辑调用， 最后在释放你匿名对象
+    先调用赋值运算符 声称一个匿名对象， c的引用就绑定在匿名对象上了， 之后按照（转换函数）正常逻辑调用， 最后在释放你匿名对象  ~~~
     ~~~
 
-  * ​
+  *
 
   ![图片](https://static.dingtalk.com/media/lALPDg7mN7QPeU3NAafNAyA_800_423.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%22366609415%3A366609415%22%2C%22msgId%22%3A%224723136161034%22%7D&bizType=im&open_id=366609415)
 
@@ -676,7 +662,162 @@ SomeClass
 
 ![图片](https://static.dingtalk.com/media/lALPDh0cMke_KcjNASzNBCU_1061_300.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%22366609415%3A366609415%22%2C%22msgId%22%3A%224722273252459%22%7D&bizType=im&open_id=366609415)
 
-~~~ c++
+* 为什么要加？ V
+
+  ```c
+  //People() = default;
+  为了把隐藏的规则显示出来
+
+  把所有的逻辑显示在代码中
+  //People() = delete;
+  意思是不支持默认构造函数
+  为了方便代码维护
+  ```
+
+
+  ```
+## 4.类属性方法
+
+### 4.1 访问权限
+
+* 所有在类中实现的方法都叫作对象方法（都是跟着对象走的） 
+* 成员方法
+  * 它可以访问一个特殊的成员变量叫做this指针
+  * 方便外部调用
+* 成员属性
+  * 成员属性
+  * 方便内部调用
+  * 表述某一个对象的具体内容
+
+### 4.2 类属性与方法
+
+* 类属性局为1 ，对象共享
+
+* static定义
+
+* 单反是调构造函数的总数加1， 析构函数-1；
+
+  * 统计系统中对象的格式有一个潜在的小问题由一个特殊的转换构造函数的问题， 不存的话就没有问题
+
+  * 这种机制只在定义的时候才会调用
+
+  * ~~~ c++
+
+    #include <iostream>
+    #include <cstdio>
+    #include <cstdlib>
+    #include <queue>
+    #include <stack>
+    #include <algorithm>
+    #include <string>
+    #include <map>
+    #include <set>
+    #include <vector>
+    using namespace std;
+
+    class Point {
+    public :
+        Point() {
+            cout << "constructor : " << this << endl;
+            Point::total_cnt += 1;
+        }
+        Point(const Point &a) : Point() {
+            cout << "copy constructor : " << this << endl;
+            this->x = a.x;
+            this->y = a.y;
+        }
+        Point(double z) : Point() {
+            cout << "convert constructor : " << this << endl;
+            this->x = 99, this->y = 99;
+        }
+        Point(int x, int y) : Point() {
+            cout << "param constructor : " << this << endl;
+            this->x = x;
+            this->y = y;
+        }
+
+        void operator=(const Point &a) {
+            cout << "operator= : " << this << endl;
+            this->x = a.x, this->y = a.y;
+            return ;
+        }
+        static int T() { return Point::total_cnt; }
+
+        ~Point() {
+            cout << "destructor : " << this << endl;
+            Point::total_cnt -= 1;
+        }
+        
+    private:
+        int x, y;
+        static int total_cnt;
+    };
+
+    int Point::total_cnt = 0;
+
+    void test() {
+        Point a;
+        cout << Point::T() << endl;
+        return ;
+    }
+
+    int main() {
+        Point a;
+        cout << a.T() << endl;
+        test();
+        Point b;
+        cout << b.T() << endl;
+        Point c(3, 4);
+        cout << c.T() << endl;
+        Point d(3.4);
+        cout << d.T() << endl;
+        c = 5.6;
+        cout << c.T() << endl;
+        cout << &a << endl;
+        cout << &b << endl;
+        cout << &c << endl;
+        cout << &d << endl;
+        return 0;
+    }
+    //先出现的后析构
+
+    c = 5.6逻辑
+    先调用赋值运算符 声称一个匿名对象， c的引用就绑定在匿名对象上了， 之后按照（转换函数）正常逻辑调用， 最后在释放你匿名对象  ~~~
+
+  *
+
+  ![图片](https://static.dingtalk.com/media/lALPDg7mN7QPeU3NAafNAyA_800_423.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%22366609415%3A366609415%22%2C%22msgId%22%3A%224723136161034%22%7D&bizType=im&open_id=366609415)
+
+### 4.3const方法
+
+* 不改变对象的属性值
+* 作用是杯const类型嗯的对象进行调用 const只能调用const
+
+### 5.总结
+
+* //先出现的后析构
+  * 因为后来构建的可能依赖于先构建 的
+  * 否则的话可能会出现bug
+
+### 6.对象和引用
+
+* 都只作用存储空间
+
+### 7.返回值优化
+
+#### 7.1对象的初始化
+
+SomeClass
+
+* 开辟对象数据区
+* 匹配构造函数
+* 完成构造
+
+#### 7.2返回值优化
+
+![图片](https://static.dingtalk.com/media/lALPDh0cMke_KcjNASzNBCU_1061_300.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%22366609415%3A366609415%22%2C%22msgId%22%3A%224722273252459%22%7D&bizType=im&open_id=366609415)
+
+​~~~ c++
 #include <iostream>
 #include <cstdio>
 #include <cstdlib>
@@ -714,7 +855,514 @@ int main() {
     return 0;
 }
 
+​~~~
+g++ -fno-elide-constructor 
+  ```
+
+### 
+
+### 8.深拷贝和浅拷贝
+
+
+
+
+
+## 四、运算符重载
+
+### 1，简单重载cin cout
+
+~~~ c++
+
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <queue>
+#include <stack>
+#include <algorithm>
+#include <string>
+#include <map>
+#include <set>
+#include <vector>
+using namespace std;
+
+namespace haizei {
+
+class istream {
+public :
+    istream &operator>>(int &n) {
+        std::cin >> n;
+        return *this;
+    }
+private:
+
+};
+
+class ostream {
+public :        
+    ostream &operator<<(int &n) {
+        std::cout << n;
+        return *this;
+    }
+    ostream &operator<<(const char *msg) {
+        std::cout << msg;
+        return *this;
+    }
+private:
+
+};
+    
+istream cin;
+ostream cout;
+};
+
+int main() {
+    int n, m;
+    haizei::cin >> n >> m;
+    haizei::cout << n << " " << m << "\n";
+    return 0;
+}
 ~~~
 
+部分重载示例
 
+~~~ c++
+
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <queue>
+#include <stack>
+#include <algorithm>
+#include <string>
+#include <map>
+#include <set>
+#include <vector>
+using namespace std;
+
+class Point {
+public :
+    Point() : __x(0), __y(0) {}
+    Point(int x, int y) : __x(x), __y(y) {}
+    int x() const { return __x; }
+    int y() const { return __y; }
+    
+    Point operator+(const Point &a) {
+        return Point(x() + a.x(), y() + a.y());
+    }
+    Point &operator+=(const Point &a) {
+        __x += a.x();
+        __y += a.y();
+        return *this;
+    }
+    Point &operator++() {
+        __x += 1;
+        __y += 1;
+        return *this;
+    }
+    Point operator++(int) {
+        Point temp(*this);
+        __x += 1;
+        __y += 1;
+        return temp;
+    }
+
+private:
+    int __x, __y;
+};
+
+ostream &operator<<(ostream &out, const Point &a) {
+    out << "Point (" << a.x() << ", " << a.y() << ")";
+    return out;
+}
+
+int main() {
+    Point a(4, 5), b(3, 4), c(1, 1);
+    cout << a << endl;
+    cout << b << endl;
+    cout << c << endl;
+    cout << a + b << endl;
+    cout << "pre incr : " << ++(c += b) << endl;
+    cout << c << endl;
+    cout << "after incr : " << c++ << endl;
+    cout << c << endl;
+    int n = 6, m = 7;
+    (n += m)++;
+    cout << n << endl;
+    return 0;
+}
+
+~~~
+
+~~~ c++
+/*************************************************************************
+	> File Name: 13.operator-3.cpp
+	> Author: dofo-eat
+	> Mail:2354787023@qq.com 
+	> Created Time: 2020年07月27日 星期一 20时04分17秒
+ ************************************************************************/
+
+#include<iostream>
+using namespace std;
+
+class A {
+public:
+    int x, y;
+};
+
+class B {
+public:
+    //B() : obj(nullptr) {
+    B():obj(){ 
+    arr = new int[10];
+        arr[3] = 9973;
+    }
+    B(A* obj):B() {
+       this->obj = obj; 
+    } 
+    int operator()(int a, int b) {
+        return a + b;
+    }
+    int &operator[](int ind) {
+        return arr[ind];
+    }
+    void operator[](const char *msg) {
+        cout << msg << endl;
+        return;
+    }
+    //返回A类地址
+    A *operator->() {
+        return obj;
+    }
+    ~B() {
+        delete arr;
+    }
+private: 
+    int *arr;
+    A *obj;
+};
+
+ostream &operator<<(ostream &out, const A &a) {
+    out << "A(" << a.x << "," << a.y << ")";
+    return out;
+}
+//(),  [],  （间接引用）-> 赋值运算符只能在类内重载
+//a.x  sizeof 三木运算， a.*func(),成员指针， ：运算符不能重载
+int main() {
+    B add;
+    //能后像函数一样调用的叫做函数对象
+    cout << add(3, 4) << endl;
+    //像对相关值进行改变， 就是使用引用
+    add[3] = 8876;
+    //数组对象
+    cout << add[3] << endl;
+    add["hello world"];
+    A a;
+    a.x = 67, a.y = 99;
+    B p = &a;
+    //值针对象
+    cout << p->x << " " << p->y << endl;
+    return 0;
+}
+
+~~~
+
+~~~ c++
+ ************************************************************************/
+
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <queue>
+#include <stack>
+#include <algorithm>
+#include <string>
+#include <map>
+#include <set>
+#include <vector>
+using namespace std;
+
+class A {
+public :
+    int x, y;
+};
+
+class B {
+public :
+    B() : obj(nullptr) {
+        arr = new int[10];
+        arr[3] = 9973;
+    }
+    B(A *obj) : B() {
+        this->obj = obj;
+    }
+    int operator()(int a, int b) {
+        return a + b;
+    }
+    int &operator[](int ind) {
+        return arr[ind];
+    }
+    void operator[](const char *msg) {
+        cout << msg << endl;
+        return ;
+    }
+    A *operator->() {
+        return obj;
+    }
+    A &operator*() {
+        return *obj;
+    }
+
+    ~B() {
+        delete arr;
+    }
+private:
+    int *arr;
+    A *obj;
+};
+
+ostream &operator<<(ostream &out, const A &a) {
+    out << "A(" << a.x << ", " << a.y << ")";
+    return out;
+}
+
+int main() {
+    B add;
+    cout << add(3, 4) << endl;
+    cout << add[3] << endl;
+    add[3] = 8876;
+    cout << add[3] << endl;
+    add["hello world"];
+    A a;
+    a.x = 67, a.y = 99;
+    B p = &a;
+    cout << p->x << " " << p->y << endl;
+    cout << *p << endl;
+    return 0;
+}
+
+~~~
+
+## 五 继承
+
+* 封装：我该有的和我应该做的
+* 继承：叫一声爸爸， 你将拥有财富
+* 多态：我就是我不一样的烟火
+
+### 1.继承权限是值子类从父类继承过来的权限
+
+* 只能更低， 不能更高
+* 影响的是外部访问子类继承自父类继承来的属性和方法访问的权限
+
+~~~ c++
+
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <queue>
+#include <stack>
+#include <algorithm>
+#include <string>
+#include <map>
+#include <set>
+#include <vector>
+using namespace std;
+
+class Animal {
+public :
+    Animal(string name, int age) : __name(name), age(age) {}
+    void say() {
+        cout << "my name is : " << __name << ", my age is : " << age << endl;
+    }
+
+protected:
+    string __name;
+
+private:
+    int age;//是一个声明， 由一个对象就有一个age
+};
+
+class Cat : public Animal {
+public :
+    Cat() = delete;
+    Cat(string name, int age) : Animal(name, age) {}
+};
+
+class Bat : protected Animal {
+public :
+    Bat() = delete;
+    Bat(string name, int age) : Animal(name, age) {}
+    void say() {
+        this->Animal::say();
+        cout << "class Bat : " << __name << endl;
+        //cout << "class Bat : " << age << endl;
+        return ;
+    }
+};
+
+int main() {
+    Cat a("kitty", 29);
+    a.say();
+    Bat b("hug", 16384);
+    b.say();
+    return 0;
+}
+//受保护的权限Bat
+//不想让外部访问但是想让子类可以访问的权限
+~~~
+
+### 2.父类子类的构造函数
+
+#### 2.1分为三部 
+
+* 头部， 初始化列表 逻辑 (Cat() : 初始化列表 {(逻辑又成为方法（类内部的）)})、
+  * 初始化列表包含父类的构造， 在包含子类的属性和方法、
+  * 所以子类调用， 父类调用， 父类结束， 子类结束总而言之， 时父类的先完成构造， 子类在完成构造
+
+~~~ c++
+#include<iostream>
+using namespace std;
+
+class D {
+public:
+    D() {cout << "D constructor" << endl;}
+};
+
+class A {
+public:
+    //不像按默认顺序就加上这一行代码， 传参
+    //A() = delete;
+    A() {cout << "A constructor" << endl;}
+};
+class B {
+public:
+    B() {cout << "B constructor" << endl;}
+};
+class C :public D {
+public:
+    //显示的初始化列表
+    //C(): b(), a() {cout << "C constructor" << endl;}
+    //初始化顺序是按照定义的顺序来进行初始化的
+    
+    C(): a(), b() {cout << "C constructor" << endl;}
+
+private:
+    B b;
+  	A a;//输出的顺序时D B A C
+  //因为这里我们声明的顺序是B 在A的前面
+};
+
+int main () {
+    C c;
+    return 0;
+}
+
+~~~
+
+~~~ c++
+***************************************************************/
+
+#include<iostream>
+using namespace std;
+
+class D {
+public:
+    D() {cout << "D constructor" << endl;}
+    ~D() {cout << "D distructor " << endl;}
+};
+
+class A {
+public:
+    //不像按默认顺序就加上这一行代码， 传参
+    //A() = delete;
+    A() {cout << "A constructor" << endl;}
+    ~A() {cout << "A constructor" << endl;}
+};
+class B {
+public:
+    B() {cout << "B constructor" << endl;}
+    ~B() {cout << "B distructor" << endl;}
+};
+class C :public D {
+public:
+    //显示的初始化列表
+    //C(): b(), a() {cout << "C constructor" << endl;}
+    //初始化顺序是按照定义的顺序来进行初始化的
+    
+    C(): a(), b() {cout << "C constructor" << endl;}
+    ~C() {cout << "c destructor " << endl;}
+
+private:
+    B b;
+    A a;
+};
+
+int main () {
+    C c;
+    return 0;
+}//析构对的顺序
+~~~
+
+### 3.菱形继承
+
+![图片](https://static.dingtalk.com/media/lALPDhmOs7RU9XnNAXLNAkQ_580_370.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%22366609415%3A366609415%22%2C%22msgId%22%3A%224740817106215%22%7D&bizType=im&open_id=366609415)
+
+### 4.拷贝赋值继承
+
+~~~ c++
+/*************************************************************************
+	> File Name: 17.inherit_copyconstructor.cpp
+	> Author: dofo-eat
+	> Mail:2354787023@qq.com 
+	> Created Time: 2020年07月28日 星期二 20时45分10秒
+ ************************************************************************/
+
+#include<iostream>
+#include<cstdio>
+using namespace std;
+
+class A {
+public:
+    A() {
+        cout << "class A constructor" << endl;
+        this->x = 0x01020304;
+
+    }
+    A(const A &a) {
+        cout << "class A copy constructor" <<this<<  endl;
+    }
+    int x;
+};
+
+class B : public A {
+public:
+    B() {
+        this->y = 0x05060708;
+        cout << "class B constructor" <<endl;
+        
+    }
+
+    //拷贝构造需要定义一个单独的显示引用
+    //继承的语义信息就是可以b对象看为一个A对象， 就ihiyige对象可以帮钉在她的父类引用上
+    //对于一个对象的起始位置不变， 但是看我们需要几个字节就来几个字节的变来嗯
+    B(const B &b) : A(b) {
+        cout << "class B copy constructor" << this <<endl;
+    }
+    int y;
+};
+
+int main() {
+    B b1;
+    B b2(b1);
+    const char *msg = (const char *)(&b1);
+    for(int i = 0; i <= sizeof(B); i++) {
+        printf("%X", msg[i]);
+    }
+    //输出43218765小端机器
+    //低位存储在低端
+    printf("\n"
+        );
+    return 0;
+}
+
+~~~
 
