@@ -2,26 +2,29 @@
 	> File Name: 19.cpp
 	> Author: dofo-eat
 	> Mail:2354787023@qq.com 
-	> Created Time: 2020年07月28日 星期二 15时04分50秒
+	> Created Time: 2020年07月31日 星期五 11时58分06秒
  ************************************************************************/
 
 #include<iostream>
-#include <algorithm>
-#include <vector>
 using namespace std;
 
 int main() {
-    vector<int> v;
-    int n;
-    while(cin >> n) {
-        auto iter = find(v.begin(), v.end(), n);
-        if(iter == v.end()) {
-            v.push_back(n);
-        }
+    int n, m;
+    cin >> n >> m;
+    int a[n], b[m];
+    for(int i = 0; i < n; i++) {
+        cin >> a[i];
     }
-    sort(v.begin(), v.end(), greater<int>());
-    for(auto iter = v.begin(); iter != v.end(); iter++ ) {
-        cout << *iter << endl;
+    for(int j = 0; j < m; j++) {
+        cin >> b[j];
+    }
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < m; j++) {
+            if(a[i] == b[j]) {
+                cout << a[i];
+                break;
+            }
+        }
     }
     return 0;
 }
