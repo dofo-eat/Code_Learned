@@ -6,13 +6,6 @@
  ************************************************************************/
 
 #include <iostream>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <algorithm>
-#include <vector>
-#include <map>
-#include <cmath>
 using namespace std;
 #define MAX_N 1000000
 

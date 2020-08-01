@@ -1306,6 +1306,84 @@ int main () {
 
 ![图片](https://static.dingtalk.com/media/lALPDhmOs7RU9XnNAXLNAkQ_580_370.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%22366609415%3A366609415%22%2C%22msgId%22%3A%224740817106215%22%7D&bizType=im&open_id=366609415)
 
+~~~ c++
+//现象1指代不明
+#include<iostream>
+using namespace std;
+
+struct A {
+    int x;
+};
+struct B :public A {
+    void set(int x) {
+        //更改的是A的X值
+        this->x = x;
+
+    }
+};
+struct C :public A {
+//读取x
+    int get() {
+        return this->x;
+    }
+};
+struct D :public B, public C {
+    
+};
+
+int main() {
+    D d;
+    d.set(9973);
+    //输出的结果不是9973
+    cout << d.get() << endl;
+    return 0;
+}
+
+~~~
+
+* 解决输出结果冲突
+
+~~~ c++
+#include<iostream>
+using namespace std;
+
+struct A {
+    int x;
+};
+struct B :virtual public A {
+    void set(int x) {
+        //更改的是A的X值
+        this->x = x;
+        cout << "set:" << &this->x << endl;
+    }
+};
+//virtual 合并有可能产生冗余的父类
+struct C :virtual public A {
+//读取x
+    int get() {
+        cout << "get:" << &this->x << endl;
+        return this->x;
+    }
+};
+struct D :public B, public C {
+    
+};
+
+int main() {
+    D d;
+    d.set(9973);
+    //输出的结果不是9973
+    cout << d.get() << endl;
+    return 0;
+}
+//会发现输出的D的存储空件会变得更大了
+//所以不提倡多重继承
+~~~
+
+#### 1.虚继承的对象模型 
+
+![img](https://static.dingtalk.com/media/lALPGo_k8dQ28jbNBiDNC1Y_2902_1568.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228145301367%22%2C%22msgId%22%3A%224759153734451%22%7D&bizType=im&open_id=366609415)
+
 ### 4.拷贝赋值继承
 
 ~~~ c++
@@ -1365,4 +1443,176 @@ int main() {
 }
 
 ~~~
+
+## # 5.实现自己的string
+
+~~~ c++
+
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <queue>
+#include <stack>
+#include <algorithm>
+#include <string>
+#include <map>
+#include <set>
+#include <vector>
+using namespace std;
+
+namespace haizei {
+class string {
+public :
+    string() {
+        this->__buff_size = 10;
+        this->buff = new char[this->__buff_size];
+        this->__length = 0;
+    }
+    string(const char *str) {
+        this->__buff_size = strlen(str) + 1;
+        this->buff = new char[this->__buff_size];
+        strcpy(this->buff, str);
+        this->__length = this->__buff_size - 1;
+    }
+    char &at(int ind) {
+        if (ind < 0 || ind >= __length) {
+            cout << "String Error : out of range" << endl;
+            return __end;
+        }
+        return this->operator[](ind);
+    }
+    char &operator[](int ind) {
+        return buff[ind];
+    }
+    const char *c_str() const {
+        return buff;
+    }
+    string operator+(const string &s) {
+        int size = this->__length + s.__length + 1;
+        char *temp = new char[size];
+        strcpy(temp, this->buff);
+        strcat(temp, s.buff);
+        return temp;
+    }
+    int size() { return this->__length; }
+
+private:
+    int __length, __buff_size;
+    char *buff;
+    char __end;
+};
+
+}
+
+ostream &operator<<(ostream &out, const haizei::string &s) {
+    out << s.c_str();
+    return out;
+}
+
+int main() {
+    haizei::string s1 = "hello world", s2 = ", haizei", s3 = ", harbin.";
+    cout << s1 << endl;
+    s1[3] = '6';
+    cout << s1 << endl;
+    cout << s1 + s2 + s3 << endl;
+    for (int i = 0; i < s1.size(); i++) {
+        cout << s1[i] << endl;
+    }
+    return 0;
+}
+~~~
+
+## 六.多态
+
+### 1.普通的成员方法跟着类走
+
+~~~ c++
+ass Cat : public Animal {
+public:
+    //加不加override之后只是把让一些错误在运行时候的bug暴洛在运行时器
+    void run() override{
+        //判断事不是真正的重载了run
+        cout << "I can run with four legs" << endl;
+    }
+};
+
+int main () {
+    Cat a;
+    Animal &b = a;
+    Animal *c = &a;
+    a.run();
+    b.run();
+    c->run();
+}
+
+~~~
+
+* 主要说的是虚函数
+* 编译时状态和运行时状态
+  * 运行时状态需要存储调用节点
+  * 高级功能都是有一定的代价
+
+#### 2.虚函数精讲
+
+* 我们普通函数加上一个虚函数， 
+
+* 会产生一个虚函数表
+
+  * 虚函数的每一个格子存储的是函数（方法）地址
+  * 它所存取的函数总共大小都是固定的， 它不影响对象的大小
+  * ![图片](https://static.dingtalk.com/media/lALPDgQ9u_e7F-7NAsnNAik_553_713.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%22366609415%3A366609415%22%2C%22msgId%22%3A%224759473890229%22%7D&bizType=im&open_id=366609415)
+  * 头部存储8个字节， 就是虚函数的表
+
+  ~~~ c++
+
+  #include<iostream>
+  using namespace std;
+
+  class Animal {
+  public:
+      //加上virtual 就可以跟着对象走
+      virtual void run() {
+          cout << "I don know" << endl;
+      }
+  };
+
+  class Cat : public Animal {
+  public:
+      //加不加override之后只是把让一些错误在运行时候的bug暴洛在运行时器
+      void run() override{
+          //判断事不是真正的重载了run
+          cout << "I can run with four legs" << endl;
+      }
+  };
+
+  class A {
+  public:
+      int x;
+      virtual void run(int x) {
+          //this 是一个隐形参数
+          cout << this << endl;
+          cout << "class A : I can say" << x << endl;
+      }
+      virtual void run1() {}
+  };
+
+  typedef void (*func)(int);
+
+  int main () {
+      //不加虚函数输出4
+      //加上虚函数的之后就4 + 8 但是要存储整数，所以16
+      cout << sizeof(A) << endl;
+      A temp_a;
+      ((func **)(&temp_a))[0][0](6);
+      Cat a;
+      Animal &b = a;
+      Animal *c = &a;
+      a.run();
+      b.run();
+      c->run();
+  }
+
+  ~~~
+
+  ​
 
