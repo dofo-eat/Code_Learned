@@ -38,7 +38,42 @@ public:
 
 typedef void (*func)(int);
 
+/*A retA () {
+    A temp_a("hello world");
+    retA temp_a;
+}*/
+
+class Base {
+public:
+    Base() {
+        cout << "Base constructoe" << endl;
+        this->x = new int;
+    }
+    virtual ~Base() {
+        cout << "Base destructoe" << endl;
+        delete this->x;
+    }
+private:
+    int *x;
+};
+
+class Base_A :public Base {
+public:
+    Base_A() {
+        cout << "Base_A constructoe" << endl;
+        this->y = new int;
+    }
+    ~Base_A() {
+        cout << "Base_A destructoe" << endl;
+        delete this->y;
+    }
+private:
+    int *y;
+};
+
 int main () {
+    Base *ba = new Base_A();
+    delete ba;
     //不加虚函数输出4
     //加上虚函数的之后就4 + 8 但是要存储整数，所以16
     cout << sizeof(A) << endl;

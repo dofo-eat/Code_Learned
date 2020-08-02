@@ -1552,7 +1552,7 @@ int main () {
   * 运行时状态需要存储调用节点
   * 高级功能都是有一定的代价
 
-#### 2.虚函数精讲
+### 2.虚函数精讲
 
 * 我们普通函数加上一个虚函数， 
 
@@ -1612,6 +1612,215 @@ int main () {
       c->run();
   }
 
+  ~~~
+
+### 2.1纯虚函数的特点
+
+* 不能产生具体的对象（没有后代）所以
+* 接口类具有纯虚函数的又叫抽象类
+* 主要用于定义接口
+
+实现自己的hashtabe
+
+~~~ c++
+
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <queue>
+#include <stack>
+#include <algorithm>
+#include <string>
+#include <map>
+#include <set>
+#include <vector>
+using namespace std;
+
+namespace haizei {
+
+class IHashFunc {
+public :
+    virtual int operator()(int) = 0;
+};
+
+class HashTable {
+    typedef int (*HashFunc_T)(int);
+    typedef pair<int, int> PII;
+public :
+    HashTable(HashFunc_T);
+    HashTable(IHashFunc &);
+    int &operator[](int);
+
+private:
+    HashTable(HashFunc_T, IHashFunc *, int);
+    int hash_type;
+    HashFunc_T func1;
+    IHashFunc *func2;
+
+    int __size;
+    PII **data;
+};
+
+HashTable::HashTable(HashFunc_T func1, IHashFunc *func2, int hash_type) 
+: func1(func1), func2(func2), hash_type(hash_type) {
+    this->__size = 1000;
+    this->data = new PII*[this->__size];
+    for (int i = 0; i < this->__size; i++) this->data[i] = nullptr;
+}
+
+HashTable::HashTable(HashFunc_T func) 
+: HashTable(func, nullptr, 1) {}
+
+HashTable::HashTable(IHashFunc &func) 
+: HashTable(nullptr, &func, 2) {}
+
+
+int &HashTable::operator[](int x) {
+    int hash = 0;
+    switch (hash_type) {
+        case 1: hash = func1(x); break;
+        case 2: hash = (*func2)(x); break;
+    }
+    if (hash < 0) hash &= 0x7fffffff;
+    int ind = hash % __size, t = 1;
+    while (data[ind] && data[ind]->first != x) {
+        ind += t * t;
+        if (ind < 0) ind = ind & 0x7fffffff;
+        ind %= __size;
+        t += 1;
+    }
+    if (data[ind] == nullptr) data[ind] = new PII(x, 0);
+    return data[ind]->second;
+}
+
+} // end of namespace haizei
+
+int hash1(int x) {
+    return (x << 1) ^ (x << 3) ^ (x >> 5);
+}
+
+class MyHashFunc : public haizei::IHashFunc {
+public :
+    int operator()(int x) override {
+        return (x << 1) ^ (x << 3) ^ (x >> 5);
+    }
+};
+
+int main() {
+    MyHashFunc hash2;
+    haizei::HashTable h1(hash1);
+    haizei::HashTable h2(hash2);
+    h1[123] = 345;
+    h2[123] = 678;
+    cout << h1[123] << endl;
+    cout << h2[123] << endl;
+    cout << h1[789] << endl;
+    cout << h2[1000000] << endl;
+    return 0;
+}
+
+~~~
+
+#### 2,2深入理解虚函数
+
+* 同一类型他们的虚函数表是一模一样的因为他们的头8个字节记录的一个地址指向的是同一个虚函数表
+* 每一个类型都对应一个虚函数表（int double ）它所指向的是8个字节的地址欢乐
+
+
+* 每一项目都是一个方法
+
+* 类型转换方法有四个
+
+  * 第一个dynamic_cast, 它只有在多态的情况下才可以使用
+  * 因为同一个类的虚函数表示一模一样的
+  * 我们根据他们的来进行对照来判断是不是一眼， 看根据父类判断出它调用的是那个子类
+  * 一般在父类调用virtule来进行建立虚函数
+  * 没有把析构函数设置为虚函数的话就没办法正确的析构函数， 它只会析构单前所指向的普通的函数， 否则会内存泄露， 一定要设为虚函数
+  * 只要有继承， 父类函数一定是虚函数
+
+  ~~~ c++
+
+  #include <iostream>
+  #include <cstdio>
+  #include <cstdlib>
+  #include <queue>
+  #include <stack>
+  #include <algorithm>
+  #include <string>
+  #include <map>
+  #include <set>
+  #include <vector>
+  using namespace std;
+
+  class A {
+  public :
+      virtual ~A() {}
+  private:
+
+  };
+
+  class B : public A {
+  public :
+      void sayB() {
+          cout << "this is class B, x = " << x << endl;
+      }
+      int x;
+  };
+  class C : public A {
+  public :
+      void sayC() {
+          cout << "this is class C, x = " << x << endl;
+      }
+      double x;
+  };
+  class D : public A {
+  public :
+      void sayD() {
+          cout << "this is class D, x = " << x << endl;
+      }
+      string x;
+  };
+
+  int my_dynamic_cast(A *ta) {
+      char **pa = (char **)(ta);
+      char **pb = (char **)(new B());
+      char **pc = (char **)(new C());
+      char **pd = (char **)(new D());
+      int ret = -1;
+      if (pa[0] == pb[0]) ret = 0;
+      else if (pa[0] == pc[0]) ret = 1;
+      else if (pa[0] == pd[0]) ret = 2;
+      return ret;
+  }
+
+  int main() {
+      srand(time(0));
+      A *pa;
+      B *pb;
+      C *pc;
+      D *pd;
+      switch (rand() % 3) {
+          case 0: pb = new B(); pa = pb; pb->x = 123; break;
+          case 1: pc = new C(); pa = pc; pc->x = 45.6; break;
+          case 2: pd = new D(); pa = pd; pd->x = "hello haizei"; break;
+      }
+      if ((pb = dynamic_cast<B *>(pa))) {
+          cout << "Class B : ";
+          pb->sayB();
+      } else if ((pc = dynamic_cast<C *>(pa))) {
+          cout << "Class C : ";
+          pc->sayC();
+      } else if ((pd = dynamic_cast<D *>(pa))) {
+          cout << "Class D : ";
+          pd->sayD();
+      }
+      switch (my_dynamic_cast(pa)) {
+          case 0: ((B *)(pa))->sayB(); break;
+          case 1: ((C *)(pa))->sayC(); break;
+          case 2: ((D *)(pa))->sayD(); break;
+      }
+      return 0;
+  }
   ~~~
 
   ​
