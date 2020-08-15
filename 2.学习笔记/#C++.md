@@ -1872,7 +1872,75 @@ int main() {
   this->func = std::bind(func, forward<ARGS>(args)...);
   ~~~
 
-* c初步实现时这样的
+* 改整后大概时这样的
+
+* ~~~ c++
+  /*************************************************************************
+  	> File Name: 1.thread_pool.h
+  	> Author: dofo-eat
+  	> Mail:2354787023@qq.com 
+  	> Created Time: 2020年08月14日 星期五 22时25分46秒
+   ************************************************************************/
+
+  #ifndef _THREAD_POOL_H
+  #define _THREAD_POOL_H
+  #include <iostream>
+  #include <algorithm>
+  using namespace std;
+
+  namespace haizei {
+  class Task {
+  public:
+      template<typename Func_T, typename ...ARGS>
+      Task(Func_T f, ARGS ...args) {
+          //为了保证变参函数能够按传输的样是进行传递， 需要加上forward
+          func = bind(f, std::forward<ARGS>(args)...);   
+      }
+      void run() {
+          func();
+      }
+  private:
+      std::function<void()> func;
+  };
+  }
+
+  #endif
+
+  ~~~
+
+* 传递函数的类的调用方式大约时这样的
+
+* ~~~ c++
+  /*************************************************************************
+  	> File Name: 2.run.cpp
+  	> Author: dofo-eat
+  	> Mail:2354787023@qq.com 
+  	> Created Time: 2020年08月14日 星期五 22时30分49秒
+   ************************************************************************/
+
+  #include<iostream>
+  #include "thread_pool.h"
+  using namespace std;
+
+  //如果我们这里传的是引用， 下面的n的传递就是引用传递ref
+  //void func(int x, int n)
+  void func(int x, int &n) {
+      n += 2;
+      cout << "func :" << x << " " << n << endl;
+  }
+
+  int main() {
+      int n = 123;
+      //haizei::Task t(func, 23, n);
+      haizei::Task t(func, 23, ref(n));
+      t.run();
+      cout << n << endl;
+      return 0;
+  }
+  //注释掉的位置就是没有使用引用传参的时候
+  ~~~
+
+* ​
 
 * ~~~ c++
 
@@ -1964,7 +2032,466 @@ int main() {
   }
 
   ~~~
+  ### 
 
 * ​
 
   ​
+
+### 非线程安全的临界资源
+
+* 我们在对于进行线程对列进行同时存取的先向我们要保证线程的安全问题， 我们读一对线程的存取， 需要保证它的安这就是临界安全问题
+* 多线程环境的变量等， 在容易出现错误
+
+### 原子操作，
+
+我们在进行元素插入的时候，插入不进去， 所以我们在进行原子操作的时候需要进行加锁 
+
+~~~c++
+/*************************************************************************
+	> File Name: 34.thread_pool.cpp
+	> Author: huguang
+	> Mail: hug@haizeix.com
+	> Created Time: 四  8/13 16:07:49 2020
+ ************************************************************************/
+
+#include <iostream>
+#include <queue>
+#include <vector>
+#include <thread>
+#include <mutex>
+
+namespace haizei {
+class Task {
+public:
+    template<typename T, typename ...ARGS>
+    Task(T func, ARGS... args) {
+        this->func = std::bind(func, std::forward<ARGS>(args)...);
+    }
+    void operator()() {
+        this->func();
+        return ;
+    }
+    ~Task() {}
+
+private:
+    std::function<void()> func;
+};
+
+class ThreadPool {
+public :
+    ThreadPool(int n = 5) 
+    : is_running(false), 
+    max_threads_num(n),
+    m_mutex(),
+    m_cond() {}
+    void start() {
+        if (is_running) return ;
+        is_running = true;
+        for (int i = 0; i < this->max_threads_num; i++) {
+            threads.push_back(new std::thread(&ThreadPool::worker, this));
+        }
+        return ;
+    }
+    void worker() {
+        while (is_running) {
+            Task *t = this->getOneTask();
+            if (t == nullptr) break;
+            (*t)();
+            delete t;
+        }
+        return ;
+    }
+    void stop() {
+        if (is_running == false) return ;
+        do {
+            std::unique_lock<std::mutex> lock(m_mutex);
+            is_running = false;
+            m_cond.notify_all();
+        } while (0);
+        for (int i = 0; i < this->max_threads_num; i++) {
+            threads[i]->join();
+            delete threads[i];
+        }
+        threads.clear();
+        return ;
+    }
+
+    template<typename T, typename ...ARGS>
+    void addOneTask(T func, ARGS...args) {
+        std::unique_lock<std::mutex> lock(m_mutex);
+        std::cout << std::this_thread::get_id() << " add one task" << std::endl;
+        this->task_queue.push(new Task(func, std::forward<ARGS>(args)...));
+        m_cond.notify_one();
+        return ;
+    }
+
+private:
+    Task *getOneTask() {
+        std::unique_lock<std::mutex> lock(m_mutex); // 抢碗
+        while (is_running && task_queue.empty()) {
+            std::cout << std::this_thread::get_id() << " wait one task" << std::endl;
+            m_cond.wait(lock);
+            std::cout << std::this_thread::get_id() << " take one task" << std::endl;
+        }// 等待，直到队列中存在任务
+        if (is_running == false) return nullptr;
+        Task *t = task_queue.front();
+        task_queue.pop();
+        return t;
+    }
+
+    bool is_running;
+    int max_threads_num;
+    std::vector<std::thread *> threads;
+    std::queue<Task *> task_queue;
+    
+    std::mutex m_mutex;
+    std::condition_variable m_cond;
+};
+} // end of namespace haizei
+
+void thread_func1(int a, int b) {
+    std::cout << a << " + " << b << " = " << a + b << std::endl;
+    return ;
+}
+
+void thread_func2(int &n) {
+    n += 1;
+    return ;
+}
+
+void (*func)();
+
+void task_func(int x) {
+    std::cout << "task func : " << x << std::endl;
+    return ;
+}
+
+int main() {
+    haizei::Task t1(thread_func1, 3, 4);
+    haizei::Task t2(thread_func1, 5, 6);
+    haizei::Task t3(thread_func1, 7, 8);
+    t1(), t2(), t3();
+    int n = 0;
+    
+    haizei::Task t4(thread_func2, std::ref(n));
+    t4(), t4(), t4();
+    std::cout << n << std::endl;
+
+    haizei::ThreadPool tp(6);
+    tp.start();
+    tp.addOneTask(task_func, 123);
+    tp.addOneTask(task_func, 123);
+    tp.addOneTask(task_func, 123);
+    for (int i = 0; i < 100000000; i++) ;
+    tp.stop();
+    std::cout << "hello world" << std::endl;
+    return 0;
+}
+~~~
+
+将以上代码改称一下代码的原因是在当前输入没有调用stop的时候， 我们能够进行完全调用， 而不是因为一部分的原因停止， 并且在stop之后 的线程不进行调用
+
+~~~ c++
+#include <iostream>
+#include <queue>
+#include <vector>
+#include <thread>
+#include <mutex>
+#include <map>
+
+namespace haizei {
+class Task {
+public:
+  //将is_running 从初始化队列中进行移除， 进入到工作对列进行判断
+    template<typename T, typename ...ARGS>
+    Task(T func, ARGS... args) {
+        this->func = std::bind(func, std::forward<ARGS>(args)...);
+    }
+    void operator()() {
+        this->func();
+        return ;
+    }
+    ~Task() {}
+
+private:
+    std::function<void()> func;
+};
+
+class ThreadPool {
+public :
+    ThreadPool(int n = 5) 
+    : max_threads_num(n),
+    m_mutex(),
+    m_cond() {}
+    void start() {
+        for (int i = 0; i < this->max_threads_num; i++) {
+            threads.push_back(new std::thread(&ThreadPool::worker, this));
+        }
+        return ;
+    }
+    void worker() {
+      //将当前的线程id进行初始化为true,然后对于当前线程进行判断
+        std::thread::id id = std::this_thread::get_id();
+        is_running[id] = true;
+        while (is_running[id]) {
+            Task *t = this->getOneTask();
+            (*t)();
+            delete t;
+        }
+        return ;
+    }
+    void stop() {
+        for (int i = 0; i < this->max_threads_num; i++) {
+            this->addOneTask(&ThreadPool::stop_task, this);
+        }
+        for (int i = 0; i < this->max_threads_num; i++) {
+            threads[i]->join();
+            delete threads[i];
+        }
+        threads.clear();
+        return ;
+    }
+
+    template<typename T, typename ...ARGS>
+    void addOneTask(T func, ARGS...args) {
+        std::unique_lock<std::mutex> lock(m_mutex);
+        //std::cout << std::this_thread::get_id() << " add one task" << std::endl;
+        this->task_queue.push(new Task(func, std::forward<ARGS>(args)...));
+        m_cond.notify_one();
+        return ;
+    }
+
+private:
+    void stop_task() {
+        std::thread::id id = std::this_thread::get_id();
+        is_running[id] = false;
+        return ;
+    }
+    Task *getOneTask() {
+        std::unique_lock<std::mutex> lock(m_mutex); // 抢碗
+        while (task_queue.empty()) {
+            //std::cout << std::this_thread::get_id() << " wait one task" << std::endl;
+            m_cond.wait(lock);
+        }// 等待，直到队列中存在任务
+        //std::cout << std::this_thread::get_id() << " take one task" << std::endl;
+        Task *t = task_queue.front();
+        task_queue.pop();
+        return t;
+    }
+
+    int max_threads_num;
+    std::vector<std::thread *> threads;
+    std::queue<Task *> task_queue;
+    std::map<std::thread::id, bool> is_running;
+    
+    std::mutex m_mutex;
+    std::condition_variable m_cond;
+};
+} // end of namespace haizei
+
+void thread_func1(int a, int b) {
+    std::cout << a << " + " << b << " = " << a + b << std::endl;
+    return ;
+}
+
+void thread_func2(int &n) {
+    n += 1;
+    return ;
+}
+
+void (*func)();
+
+void task_func(int x) {
+    std::cout << "thread task func" << std::endl;
+    return ;
+}
+
+int main() {
+    haizei::Task t1(thread_func1, 3, 4);
+    haizei::Task t2(thread_func1, 5, 6);
+    haizei::Task t3(thread_func1, 7, 8);
+    t1(), t2(), t3();
+    int n = 0;
+    
+    haizei::Task t4(thread_func2, std::ref(n));
+    t4(), t4(), t4();
+    std::cout << n << std::endl;
+
+    haizei::ThreadPool tp(6);
+    tp.start();
+    tp.addOneTask(task_func, 123);
+    tp.addOneTask(task_func, 123);
+    tp.addOneTask(task_func, 123);
+    tp.addOneTask(task_func, 123);
+    tp.stop();
+    tp.addOneTask(task_func, 123);
+    tp.addOneTask(task_func, 123);
+    tp.addOneTask(task_func, 123);
+    std::cout << "hello world" << std::endl;
+    return 0;
+}
+~~~
+
+简单测试样例, 以五个线程输出素数
+
+~~~ c++
+/*************************************************************************
+	> File Name: 34.thread_pool.cpp
+	> Author: huguang
+	> Mail: hug@haizeix.com
+	> Created Time: 四  8/13 16:07:49 2020
+ ************************************************************************/
+
+#include <iostream>
+#include <queue>
+#include <vector>
+#include <thread>
+#include <mutex>
+#include <map>
+
+namespace haizei {
+class Task {
+public:
+    template<typename T, typename ...ARGS>
+    Task(T func, ARGS... args) {
+        this->func = std::bind(func, std::forward<ARGS>(args)...);
+    }
+    void operator()() {
+        this->func();
+        return ;
+    }
+    ~Task() {}
+
+private:
+    std::function<void()> func;
+};
+
+class ThreadPool {
+public :
+    ThreadPool(int n = 5) 
+    : max_threads_num(n),
+    m_mutex(),
+    m_cond() {}
+    void start() {
+        for (int i = 0; i < this->max_threads_num; i++) {
+            threads.push_back(new std::thread(&ThreadPool::worker, this));
+        }
+        return ;
+    }
+    void worker() {
+        std::thread::id id = std::this_thread::get_id();
+        is_running[id] = true;
+        while (is_running[id]) {
+            Task *t = this->getOneTask();
+            (*t)();
+            delete t;
+        }
+        return ;
+    }
+    void stop() {
+        for (int i = 0; i < this->max_threads_num; i++) {
+            this->addOneTask(&ThreadPool::stop_task, this);
+        }
+        for (int i = 0; i < this->max_threads_num; i++) {
+            threads[i]->join();
+            delete threads[i];
+        }
+        threads.clear();
+        return ;
+    }
+
+    template<typename T, typename ...ARGS>
+    void addOneTask(T func, ARGS...args) {
+        std::unique_lock<std::mutex> lock(m_mutex);
+        //std::cout << std::this_thread::get_id() << " add one task" << std::endl;
+        this->task_queue.push(new Task(func, std::forward<ARGS>(args)...));
+        m_cond.notify_one();
+        return ;
+    }
+
+private:
+    void stop_task() {
+        std::thread::id id = std::this_thread::get_id();
+        is_running[id] = false;
+        return ;
+    }
+    Task *getOneTask() {
+        std::unique_lock<std::mutex> lock(m_mutex); // 抢碗
+        while (task_queue.empty()) {
+            //std::cout << std::this_thread::get_id() << " wait one task" << std::endl;
+            m_cond.wait(lock);
+        }// 等待，直到队列中存在任务
+        //std::cout << std::this_thread::get_id() << " take one task" << std::endl;
+        Task *t = task_queue.front();
+        task_queue.pop();
+        return t;
+    }
+
+    int max_threads_num;
+    std::vector<std::thread *> threads;
+    std::queue<Task *> task_queue;
+    std::map<std::thread::id, bool> is_running;
+    
+    std::mutex m_mutex;
+    std::condition_variable m_cond;
+};
+} // end of namespace haizei
+
+void thread_func1(int a, int b) {
+    std::cout << a << " + " << b << " = " << a + b << std::endl;
+    return ;
+}
+
+void thread_func2(int &n) {
+    n += 1;
+    return ;
+}
+
+void (*func)();
+
+void task_func(int x) {
+    std::cout << "thread task func" << std::endl;
+    return ;
+}
+
+int cnt = 0;
+
+int is_prime(int x) {
+    if (x <= 1) return 0;
+    for (int i = 2; i * i <= x; i++) {
+        if (x % i == 0) return 0;
+    }
+    return 1;
+}
+
+void count_prime(int l, int r) {
+    for (int i = l ; i <= r; i++) {
+        if (is_prime(i)) __sync_fetch_and_add(&cnt, 1);
+    }
+    return ;
+}
+
+int main() {
+    haizei::Task t1(thread_func1, 3, 4);
+    haizei::Task t2(thread_func1, 5, 6);
+    haizei::Task t3(thread_func1, 7, 8);
+    t1(), t2(), t3();
+    int n = 0;
+    
+    haizei::Task t4(thread_func2, std::ref(n));
+    t4(), t4(), t4();
+    std::cout << n << std::endl;
+
+    haizei::ThreadPool tp(6);
+    tp.start();
+    for (int i = 0, j = 1; i < 5; i++, j += 200000) {
+        tp.addOneTask(count_prime, j, j + 200000 - 1);
+    }
+    tp.stop();
+    std::cout << cnt << std::endl;
+    std::cout << "hello world" << std::endl;
+    return 0;
+}
+~~~
+
